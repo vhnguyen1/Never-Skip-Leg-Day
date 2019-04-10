@@ -15,9 +15,15 @@ _global_script_class_icons={
 
 [application]
 
-config/name="NeverSkipLegDay"
-run/main_scene="res://scenes/mainMenu.tscn"
+config/name="Never Skip Leg Day"
+run/main_scene="res://scenes/TestScene.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+settings/stdout/print_fps=true
+settings/stdout/verbose_stdout=true
+gdscript/completion/autocomplete_setters_and_getters=true
 
 [display]
 
