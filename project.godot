@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [debug]
 
-settings/stdout/print_fps=true
+settings/crash_handler/message="Oops! An unexpected error has occurred. Sorry about that :("
 settings/stdout/verbose_stdout=true
 gdscript/completion/autocomplete_setters_and_getters=true
 
@@ -30,6 +30,12 @@ gdscript/completion/autocomplete_setters_and_getters=true
 window/size/width=1280
 window/size/height=720
 
+[logging]
+
+file_logging/enable_file_logging=true
+file_logging/log_path="res://logs/log.txt"
+
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
