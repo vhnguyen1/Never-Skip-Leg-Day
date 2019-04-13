@@ -1,6 +1,6 @@
 [gd_scene load_steps=106 format=2]
 
-[ext_resource path="res://entities/entity/Entity.gd" type="Script" id=1]
+[ext_resource path="res://objects/entity/Entity.gd" type="Script" id=1]
 [ext_resource path="res://assets/visual/anubis/Idle/Idle_000.png" type="Texture" id=2]
 [ext_resource path="res://assets/visual/anubis/Idle/Idle_001.png" type="Texture" id=3]
 [ext_resource path="res://assets/visual/anubis/Idle/Idle_002.png" type="Texture" id=4]
@@ -102,7 +102,7 @@
 [ext_resource path="res://assets/visual/anubis/Falling Down/Falling Down_005.png" type="Texture" id=100]
 [ext_resource path="res://scripts/entity/AnimatedSequence.gd" type="Script" id=101]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -165,12 +165,12 @@ func _play_sound(path):
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="Animations" type="AnimatedSprite" parent="."]
 position = Vector2( 463.402, 432.84 )
 frames = SubResource( 2 )
-frame = 5
+frame = 3
 playing = true
 script = ExtResource( 101 )
 

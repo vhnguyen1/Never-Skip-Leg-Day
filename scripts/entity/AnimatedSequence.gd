@@ -1,5 +1,6 @@
 extends AnimatedSprite
 
+# Types of animations
 export var DEFAULT = "default"
 export var DYING = "dying"
 export var FALLING = "falling"
