@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/fantasy-1920-x-1080_002.png-31c5cb2d69b35f174ef725f6b7d432bf.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/visual/bg/fantasy/Fantasy 4/1920 x 1080/fantasy-1920-x-1080_002.png"
+dest_files=[ "res://.import/fantasy-1920-x-1080_002.png-31c5cb2d69b35f174ef725f6b7d432bf.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

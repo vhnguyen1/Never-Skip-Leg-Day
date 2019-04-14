@@ -1,11 +1,15 @@
-extends MarginContainer
+extends ParallaxBackground
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$HBoxContainer/VBoxContainer/menuOptions/btn_playGame.connect("pressed", self, "playClone")
-	#$HBoxContainer/VBoxContainer/menuOptions/btn_Options.connect("pressed", self, "playVariant")
-	$HBoxContainer/VBoxContainer/menuOptions/btn_Quit.connect("pressed", self, "playQuit")
+	pass
+	#$HBoxContainer/VBoxContainer/MenuOptions/btn_playGame.connect("pressed", self, "playClone")
+	#$HBoxContainer/VBoxContainer/MenuOptions/btn_Options.connect("pressed", self, "playVariant")
+	#$VBoxContainer/MenuOptions/PlayButton.connect("pressed", self, "playQuit")
 
+func _process(delta):
+	$ParallaxLayer.motion_offset.x -= 0.5
+	
 # Plays the game
 func playGame():
 	#get_tree().change_scene("res://scenes/Clone.tscn")
