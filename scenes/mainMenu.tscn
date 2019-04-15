@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/Parallax.gd" type="Script" id=1]
 [ext_resource path="res://assets/visual/bg/fantasy/Fantasy 2/1920 x 1080/fantasy-1920-x-1080_full.png" type="Texture" id=2]
-[ext_resource path="res://assets/visual/ui/wood_pack/button_icon_set/TEXT BTN  play.png" type="Texture" id=3]
-[ext_resource path="res://assets/visual/ui/wood_pack/button_icon_set/TEXT BTN  empty.png" type="Texture" id=4]
-[ext_resource path="res://assets/visual/ui/wood_pack/button_icon_set/TEXT BTN  quit.png" type="Texture" id=5]
+[ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/visual/ui/wood_pack/button_icon_set/TEXT BTN  play.png" type="Texture" id=4]
+[ext_resource path="res://assets/visual/ui/wood_pack/button_icon_set/TEXT BTN  empty.png" type="Texture" id=5]
+[ext_resource path="res://assets/visual/ui/wood_pack/button_icon_set/TEXT BTN  quit.png" type="Texture" id=6]
+[ext_resource path="res://assets/audio/music/oriental_sunrise.wav" type="AudioStream" id=7]
+[ext_resource path="res://scripts/misc/AudioLoop.gd" type="Script" id=8]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )
@@ -17,49 +20,56 @@ position = Vector2( 969.249, 543.787 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1.92e+007, 1080 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="MainMenu" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
-margin_top = 5.0
+margin_top = 7.78952
 margin_right = 644.0
-margin_bottom = 350.0
+margin_bottom = 352.79
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
 custom_constants/margin_bottom = 80
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 1794.0
 margin_bottom = 985.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer"]
-margin_bottom = 905.0
-
-[node name="MenuOptions" type="VBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="MainMenu/VBoxContainer"]
+margin_right = 1674.0
 margin_bottom = 905.0
 size_flags_vertical = 3
 custom_constants/separation = 30
 alignment = 1
 
-[node name="PlayButton" type="Sprite" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
-position = Vector2( 612.26, 341.375 )
-texture = ExtResource( 3 )
+[node name="PlayButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+margin_top = 269.0
+margin_right = 1674.0
+margin_bottom = 371.0
+texture_normal = ExtResource( 4 )
 
-[node name="SettingsButton" type="Sprite" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
-position = Vector2( 615.776, 490.812 )
-texture = ExtResource( 4 )
+[node name="SettingsButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+margin_top = 401.0
+margin_right = 1674.0
+margin_bottom = 503.0
+texture_normal = ExtResource( 5 )
 
-[node name="QuitButton" type="Sprite" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
-position = Vector2( 610.502, 638.491 )
-texture = ExtResource( 5 )
+[node name="QuitButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+margin_top = 533.0
+margin_right = 1674.0
+margin_bottom = 635.0
+texture_normal = ExtResource( 6 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource( 7 )
 autoplay = true
+script = ExtResource( 8 )
 
