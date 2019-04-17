@@ -19,6 +19,10 @@ config/name="Never Skip Leg Day"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Music="*res://scenes/Music.tscn"
+
 [debug]
 
 settings/crash_handler/message="Oops! An unexpected error has occurred. Sorry about that :("
