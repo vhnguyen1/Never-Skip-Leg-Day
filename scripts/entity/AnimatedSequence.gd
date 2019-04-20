@@ -8,6 +8,7 @@ export var HURTING = "hurting"
 export var ATTACKING = "attacking"
 export var RUNNING = "running"
 export var WALKING = "walking"
+export var JUMPING = "jumping"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,22 +22,29 @@ func _onAnimatedSprite_animation_finished():
 	#self.animation = "run"
 	#self._play_random_animation()
 	
-	if self.animation == DEFAULT:
-		animation = DYING
-	elif self.animation == DYING:
-		animation = FALLING
-	elif self.animation == FALLING:
-		animation = HURTING
-	elif self.animation == HURTING:
-		animation = ATTACKING
-	elif self.animation == ATTACKING:
-		animation = RUNNING
-	elif self.animation == RUNNING:
-		animation = WALKING
-	else:
-		animation = DEFAULT
+#	if self.animation == DEFAULT:
+#		animation = DYING
+#	elif self.animation == DYING:
+#		animation = FALLING
+#	elif self.animation == FALLING:
+#		animation = HURTING
+#	elif self.animation == HURTING:
+#		animation = ATTACKING
+#	elif self.animation == ATTACKING:
+#		animation = RUNNING
+#	elif self.animation == RUNNING:
+#		animation = WALKING
+#	else:
+#		animation = DEFAULT
 	
+	if self.animation == JUMPING:
+		self.animation = FALLING
+	else:
+		self.animation = DEFAULT
 	self._print_current_animation()
+
+func _play_animation(animation_name):
+	self.animation = animation_name
 
 func _play_random_animation():
 	match randi()% 8 + 1:

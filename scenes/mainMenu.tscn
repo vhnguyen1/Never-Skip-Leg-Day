@@ -109,6 +109,5 @@ position = Vector2( 881.485, 443.532 )
 scale = Vector2( 0.671458, 0.665259 )
 frames = SubResource( 1 )
 animation = "blink"
-frame = 15
 playing = true
 
