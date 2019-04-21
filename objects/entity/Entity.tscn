@@ -140,6 +140,11 @@ animations = [ {
 "loop": true,
 "name": "walking",
 "speed": 13.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "jumping",
+"speed": 5.0
 } ]
 
 [sub_resource type="AudioStreamSample" id=3]
@@ -170,7 +175,7 @@ shape = SubResource( 1 )
 [node name="Animations" type="AnimatedSprite" parent="."]
 position = Vector2( 463.402, 432.84 )
 frames = SubResource( 2 )
-frame = 16
+frame = 1
 playing = true
 script = ExtResource( 101 )
 

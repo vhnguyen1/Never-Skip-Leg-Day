@@ -37,7 +37,7 @@ func _onAnimatedSprite_animation_finished():
 #	else:
 #		animation = DEFAULT
 	
-	if self.animation == JUMPING:
+	if self.animation == JUMPING: 
 		self.animation = FALLING
 	else:
 		self.animation = DEFAULT
@@ -60,6 +60,8 @@ func _play_random_animation():
 			self.animation = RUNNING
 		6:
 			self.animation = WALKING
+		7: # ADDED
+			self.animation = JUMPING # added
 		_:
 			self.animation = DEFAULT
 
