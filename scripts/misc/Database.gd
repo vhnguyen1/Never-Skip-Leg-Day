@@ -2,38 +2,43 @@ extends Node
 
 # Database Field Names
 const PROFILES_DATABASE_TABLE_NAME = "profiles"
-const PROFILES_ID_PRIMARY_KEY_FIELD_NAME = "id"
-const PROFILES_ID_MAX_LEVEL_REACHED_FIELD_NAME = "level"
-const PROFILES_ID_BEST_LEVEL_1_TIME_FIELD_NAME = "time_1"
-const PROFILES_ID_BEST_LEVEL_2_TIME_FIELD_NAME = "time_2"
-const PROFILES_ID_BEST_LEVEL_3_TIME_FIELD_NAME = "time_3"
-const PROFILES_ID_BEST_LEVEL_4_TIME_FIELD_NAME = "time_4"
-const PROFILES_ID_BEST_LEVEL_5_TIME_FIELD_NAME = "time_5"
+const PROFILES_PRIMARY_KEY_FIELD_NAME = "id"
+const PROFILES_MAX_LEVEL_REACHED_FIELD_NAME = "level"
+#const PROFILES_BEST_LEVEL_1_TIME_FIELD_NAME = "time_1"
+#const PROFILES_BEST_LEVEL_2_TIME_FIELD_NAME = "time_2"
+#const PROFILES_BEST_LEVEL_3_TIME_FIELD_NAME = "time_3"
+#const PROFILES_BEST_LEVEL_4_TIME_FIELD_NAME = "time_4"
+#const PROFILES_BEST_LEVEL_5_TIME_FIELD_NAME = "time_5"
+const PROFILES_BEST_LEVEL_1_SCORE_FIELD_NAME = "points"
 
 # SQL key terms
 const CREATE_TABLE_IF_NOT_EXISTS = "CREATE TABLE IF NOT EXISTS "
 const INTEGER_PRIMARY_KEY = " integer PRIMARY KEY"
 const INTEGER = " integer"
 const TEXT_NOT_NULL = " text NOT NULL"
+const SELECT = "SELECT "
+const FROM = " FROM "
 const SELECT_FROM = "SELECT * FROM "
 const INSERT_INTO = "INSERT INTO "
 const VALUES = ") VALUES ("
 const UPDATE = "UPDATE "
 const SET = " SET "
 const WHERE = " WHERE "
+const LIMIT = " LIMIT "
 
 # Database Field Name Array
-const m_profiles_field_names = [PROFILES_ID_PRIMARY_KEY_FIELD_NAME, PROFILES_ID_MAX_LEVEL_REACHED_FIELD_NAME, PROFILES_ID_BEST_LEVEL_1_TIME_FIELD_NAME, PROFILES_ID_BEST_LEVEL_2_TIME_FIELD_NAME, PROFILES_ID_BEST_LEVEL_3_TIME_FIELD_NAME, PROFILES_ID_BEST_LEVEL_4_TIME_FIELD_NAME, PROFILES_ID_BEST_LEVEL_5_TIME_FIELD_NAME]
+const m_profiles_field_names = [PROFILES_PRIMARY_KEY_FIELD_NAME, PROFILES_MAX_LEVEL_REACHED_FIELD_NAME, PROFILES_BEST_LEVEL_1_SCORE_FIELD_NAME]
 
 # Database Field Type Array (which corresponds to the Field Name Array)
-const m_profiles_field_types = [INTEGER_PRIMARY_KEY, INTEGER, TEXT_NOT_NULL, TEXT_NOT_NULL, TEXT_NOT_NULL, TEXT_NOT_NULL, TEXT_NOT_NULL]
+const m_profiles_field_types = [INTEGER_PRIMARY_KEY, INTEGER, INTEGER]
 
 # Number of rows stored in the database
 var m_num_profiles_rows = 0
 
 # Default filed values
 const DEFAULT_LEVEL = 0
-const DEFAULT_TIME = "00:00"
+#const DEFAULT_TIME = "00:00"
+const DEFAULT_POINTS = 0
 
 # Error and confirmation prompts/messages
 const ERROR_MESSAGE = "ERROR: Cannot open database!"
@@ -61,20 +66,13 @@ func _init():
 	
 	# Create table
 	var query = CREATE_TABLE_IF_NOT_EXISTS + PROFILES_DATABASE_TABLE_NAME + " ("
-	#query += PROFILES_ID_FIELD_NAME + INTEGER_PRIMARY_KEY
-	#query += PROFILES_ID_MAX_LEVEL_REACHED_FIELD_NAME + INTEGER
-	#query += PROFILES_ID_BEST_LEVEL_1_TIME_FIELD_NAME + TEXT_NOT_NULL
-	#query += PROFILES_ID_BEST_LEVEL_2_TIME_FIELD_NAME + TEXT_NOT_NULL
-	#query += PROFILES_ID_BEST_LEVEL_3_TIME_FIELD_NAME + TEXT_NOT_NULL
-	#query += PROFILES_ID_BEST_LEVEL_4_TIME_FIELD_NAME + TEXT_NOT_NULL
-	#query += PROFILES_ID_BEST_LEVEL_5_TIME_FIELD_NAME + TEXT_NOT_NULL
 	
 	var i = 0
-	for field in self.m_profiles_field_names:
+	for field in m_profiles_field_names:
 		query += field
-		query += self.m_profiles_field_types[i]
+		query += m_profiles_field_types[i]
 		i = i + 1
-		if i < self.m_profiles_field_names.size():
+		if i < m_profiles_field_names.size():
 			query += ", "
 		else:
 			query += ")"
@@ -89,7 +87,6 @@ func _init():
 	db.close()
 	
 	print(result)
-	self.m_num_profiles_rows = result.size()
 	
 	# Check validity of data
 	if (!result or result.size() <= ERROR_RESULT):
@@ -99,7 +96,8 @@ func _init():
 			return
 			
 		# Insert new row
-		self._insert([DEFAULT_LEVEL, DEFAULT_TIME, DEFAULT_TIME, DEFAULT_TIME, DEFAULT_TIME, DEFAULT_TIME])
+		_insert([DEFAULT_LEVEL, DEFAULT_POINTS])
+		m_num_profiles_rows = 1
 		#result = db.query(query)
 			# Close database
 		db.close()
@@ -110,6 +108,7 @@ func _init():
 		else:
 			print(CONFIRMATION_MESSAGE)
 	else:
+		m_num_profiles_rows = result.size()
 		# Print all rows
 		for i in result:
 			print(i)
@@ -129,21 +128,21 @@ func _insert(data):
 	for field in m_profiles_field_names:
 		query += field
 		i = i + 1
-		if i < self.m_profiles_field_names.size():
+		if i < m_profiles_field_names.size():
 			query += ", "
 		else:
 			query += VALUES
 	
 	# Actual data
-	query += str(self.m_num_profiles_rows + 1)
+	query += str(m_num_profiles_rows + 1)
 	query += ", "
-	self.m_num_profiles_rows = m_num_profiles_rows + 1
+	m_num_profiles_rows = m_num_profiles_rows + 1
 	
 	i = 0
 	for field in data:
 		query += str(field)
 		i = i + 1
-		if i < self.m_profiles_field_names.size() - 1:
+		if i < m_profiles_field_names.size() - 1:
 			query += ", "
 		else:
 			query += ");"
@@ -162,7 +161,7 @@ func _update(id, field, new_data):
 	
 	var query = UPDATE + PROFILES_DATABASE_TABLE_NAME
 	query += SET + field + "='" + new_data + "'"
-	query += WHERE + PROFILES_ID_PRIMARY_KEY_FIELD_NAME + "='" + str(id) + "';"
+	query += WHERE + PROFILES_PRIMARY_KEY_FIELD_NAME + "='" + str(id) + "';"
 	db.query(query);
 	print(query)
 	
@@ -192,7 +191,7 @@ func _print_all_rows():
 	# Check validity of data
 	if (!result or result.size() <= ERROR_RESULT):
 		# Insert new row
-		_insert([DEFAULT_LEVEL, DEFAULT_TIME, DEFAULT_TIME, DEFAULT_TIME, DEFAULT_TIME, DEFAULT_TIME])
+		_insert([DEFAULT_LEVEL, DEFAULT_POINTS])
 		result = db.query(query)
 		
 		# Validate result
@@ -207,3 +206,21 @@ func _print_all_rows():
 			
 	# Close database
 	db.close()
+	
+func _get_value(id, field):
+	var db = _initialize_db()
+	if (!db):
+		return
+	
+	# Retrieve highscore from database
+	var query = SELECT + field + FROM + PROFILES_DATABASE_TABLE_NAME
+	query += WHERE + PROFILES_PRIMARY_KEY_FIELD_NAME + "='" + str(id) + "'" + LIMIT + "1;"
+	print(query)
+	
+	var rows = db.fetch_array(query)
+	
+	# Return the highscore
+	if (rows and not rows.empty()):
+		return rows[0][field];
+	
+	return 0;
