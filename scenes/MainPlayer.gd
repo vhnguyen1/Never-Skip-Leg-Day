@@ -18,11 +18,9 @@ func _physics_process(delta): # _fixed_process
 	if left_key: # when left key presssed, move left
 		set_linear_velocity(Vector2(-speed, get_linear_velocity().y))
 		$Sprite.flip_h = false  # character faces left
-# 		sprite.set_flip_h(true) # when we get main sprite, we can make character face direction of movement
 	if right_key: # when right key pressed, move right
 		set_linear_velocity(Vector2(speed, get_linear_velocity().y))
 		$Sprite.flip_h = true    # character faces right
-#		sprite.set_flip_h(false) # when we get main sprite, we can make character face direction of movement
 	if !left_key and !right_key: # when none of keys are pressed
 		set_linear_velocity(Vector2(0, get_linear_velocity().y))
 	
