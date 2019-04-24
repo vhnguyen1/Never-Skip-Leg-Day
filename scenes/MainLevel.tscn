@@ -21,10 +21,10 @@ z_index = 3
 motion_mirroring = Vector2( 560, 800 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -23.0
-margin_top = -20.0
-margin_right = 3011.0
-margin_bottom = 3142.0
+margin_left = 0.210865
+margin_top = 0.233799
+margin_right = 3034.21
+margin_bottom = 3162.23
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 expand = true

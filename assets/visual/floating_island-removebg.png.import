@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trex kirby.png-9399514665d09c8e8a28edb0c8239773.stex"
+path="res://.import/floating_island-removebg.png-b1d7727d04aa3358eb28fed781bae038.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/audio/trex kirby.png"
-dest_files=[ "res://.import/trex kirby.png-9399514665d09c8e8a28edb0c8239773.stex" ]
+source_file="res://assets/visual/floating_island-removebg.png"
+dest_files=[ "res://.import/floating_island-removebg.png-b1d7727d04aa3358eb28fed781bae038.stex" ]
 
 [params]
 
