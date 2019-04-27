@@ -1,6 +1,6 @@
 extends Node2D
 
-var platform = preload('res://scenes/mainPlatform.tscn')
+var platform = preload('res://objects/platform/Platform.tscn')
 var width 
 
 func _ready():
