@@ -18,13 +18,13 @@ func _ready():
 		possible_platform = platform.instance()
 		platform2 = platform_extra.instance()
 		possible_platform.set_position(Vector2(x,y))
-		platform2.set_position(Vector2(rand_range(-width + 50, width - 50),y2))
+		platform2.set_position(Vector2(rand_range(-width/2, width/2),y2))
 		add_child(possible_platform)
 		add_child(platform2)
 		x = rand_range(x-400,x+400) # max horizontal travel distance somewhere around 400
 		while(x < (-width/2)+100 or x > (width/2)-100):
 			x = rand_range(x-400,x+400)
 		y -= rand_range(50,220) # max jump is ~230 right now
-		y2 -= rand_range(400, 800)
+		y2 -= rand_range(300, 700)
 		
 	pass # Replace with function body.
