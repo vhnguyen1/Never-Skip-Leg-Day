@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/visual/platform.png" type="Texture" id=1]
+[ext_resource path="res://assets/visual/platform/platform.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.2784, 1.85522 )
@@ -9,6 +9,9 @@ extents = Vector2( 33.2784, 1.85522 )
 "Paddles",
 ]]
 z_index = 2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 511.081, 274.074 )

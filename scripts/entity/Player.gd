@@ -4,12 +4,13 @@ var jump_speed = 600 # how high character will jump
 var speed = 300 # how fast movement left to right
 
 var sprite
+var is_dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite = get_node("Sprite") # uncomment when we get the sprite to work
 	set_physics_process(true) # set_fixed_process(true)
-	pass
+	print(self.get_name() + " has spawned!")
 
 func _physics_process(delta): # _fixed_process
 	var left_key = Input.is_action_pressed("ui_left") 

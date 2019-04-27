@@ -13,5 +13,5 @@ func _process(delta):
 	#database = load(database_script_path).new()
 	#print(database.m_num_profiles_rows)
 	#database._print_all_rows()
-	print(database._get_value(1, database.PROFILES_BEST_LEVEL_1_SCORE_FIELD_NAME))
+	#print(database._get_value(1, database.PROFILES_BEST_LEVEL_1_SCORE_FIELD_NAME))
 	pass

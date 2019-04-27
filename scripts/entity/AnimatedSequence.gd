@@ -2,13 +2,11 @@ extends AnimatedSprite
 
 # Types of animations
 export var DEFAULT = "default"
-export var DYING = "dying"
 export var FALLING = "falling"
 export var HURTING = "hurting"
 export var ATTACKING = "attacking"
 export var RUNNING = "running"
 export var WALKING = "walking"
-export var JUMPING = "jumping"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,10 +35,7 @@ func _onAnimatedSprite_animation_finished():
 #	else:
 #		animation = DEFAULT
 	
-	if self.animation == JUMPING: 
-		self.animation = FALLING
-	else:
-		self.animation = DEFAULT
+	self.animation = DEFAULT
 	self._print_current_animation()
 
 func _play_animation(animation_name):
@@ -49,19 +44,15 @@ func _play_animation(animation_name):
 func _play_random_animation():
 	match randi()% 8 + 1:
 		1:
-			self.animation = DYING
-		2:
 			self.animation = FALLING
-		3:
+		2:
 			self.animation = HURTING
-		4:
+		3:
 			self.animation = ATTACKING
-		5:
+		4:
 			self.animation = RUNNING
-		6:
+		5:
 			self.animation = WALKING
-		7: # ADDED
-			self.animation = JUMPING # added
 		_:
 			self.animation = DEFAULT
 
