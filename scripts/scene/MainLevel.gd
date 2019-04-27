@@ -1,6 +1,6 @@
 extends Node2D
 
-var platform = preload('res://scenes/mainPlatform.tscn')
+var platform = preload('res://objects/platform/Platform.tscn')
 var break_platform = preload('res://scenes/break_platform.tscn')
 var width 
 
@@ -16,5 +16,3 @@ func _ready():
 		add_child(cloud)
 		y -= rand_range(0,180)
 	pass # Replace with function body.
-
-	

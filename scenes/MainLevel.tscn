@@ -42,4 +42,3 @@ mainPlayer_path = NodePath("../Player")
 [node name="Platform" parent="." instance=ExtResource( 5 )]
 position = Vector2( -224.464, -119.07 )
 z_index = 1
-
