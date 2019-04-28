@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/visual/wall.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40.6344, 72.5851 )
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2( 592.052, -485.914 )
+z_index = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D_right" type="CollisionShape2D" parent="."]
+position = Vector2( -162.526, 956.903 )
+shape = SubResource( 1 )
+
+[node name="rightWall" type="Sprite" parent="."]
+position = Vector2( -165.841, 963.536 )
+rotation = 1.5708
+scale = Vector2( 0.57892, 0.287402 )
+texture = ExtResource( 1 )
+
