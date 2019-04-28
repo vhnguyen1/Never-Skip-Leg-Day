@@ -26,7 +26,8 @@ func _physics_process(delta): # _fixed_process
 		set_linear_velocity(Vector2(0, get_linear_velocity().y))
 	
 # will jump once hits a platform, like doodle jump. will never be at rest
-func _on_Area2D_body_entered(body): #collision yt
+func collision(body):
 	if body.is_in_group('Paddles') and get_linear_velocity().y >= 0:
 		set_linear_velocity(Vector2(0,-jump_speed))
 	pass # Replace with function body.
+
