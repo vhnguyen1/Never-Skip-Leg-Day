@@ -4,13 +4,12 @@ var jump_speed = 600 # how high character will jump
 var speed = 300 # how fast movement left to right
 
 var sprite
-var is_dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite = get_node("Sprite") # uncomment when we get the sprite to work
 	set_physics_process(true) # set_fixed_process(true)
-	print(self.get_name() + " has spawned!")
+	pass
 
 func _physics_process(delta): # _fixed_process
 	var left_key = Input.is_action_pressed("ui_left") 
@@ -30,4 +29,3 @@ func collision(body):
 	if body.is_in_group('Paddles') and get_linear_velocity().y >= 0:
 		set_linear_velocity(Vector2(0,-jump_speed))
 	pass # Replace with function body.
-
