@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://scripts/entity/SeekingEntity.gd" type="Script" id=1]
 [ext_resource path="res://assets/visual/entity/wizard/Idle Blinking/Idle Blinking_000.png" type="Texture" id=2]
@@ -37,30 +37,30 @@
 [ext_resource path="res://assets/visual/entity/wizard/Falling Down/Falling Down_003.png" type="Texture" id=35]
 [ext_resource path="res://assets/visual/entity/wizard/Falling Down/Falling Down_004.png" type="Texture" id=36]
 [ext_resource path="res://assets/visual/entity/wizard/Falling Down/Falling Down_005.png" type="Texture" id=37]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_000.png" type="Texture" id=38]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_001.png" type="Texture" id=39]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_002.png" type="Texture" id=40]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_003.png" type="Texture" id=41]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_004.png" type="Texture" id=42]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_005.png" type="Texture" id=43]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_006.png" type="Texture" id=44]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_007.png" type="Texture" id=45]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_008.png" type="Texture" id=46]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_009.png" type="Texture" id=47]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_010.png" type="Texture" id=48]
-[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_011.png" type="Texture" id=49]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_000.png" type="Texture" id=50]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_001.png" type="Texture" id=51]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_002.png" type="Texture" id=52]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_003.png" type="Texture" id=53]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_004.png" type="Texture" id=54]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_005.png" type="Texture" id=55]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_006.png" type="Texture" id=56]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_007.png" type="Texture" id=57]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_008.png" type="Texture" id=58]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_009.png" type="Texture" id=59]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_010.png" type="Texture" id=60]
-[ext_resource path="res://assets/visual/entity/wizard/Running/Running_011.png" type="Texture" id=61]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_000.png" type="Texture" id=38]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_001.png" type="Texture" id=39]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_002.png" type="Texture" id=40]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_003.png" type="Texture" id=41]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_004.png" type="Texture" id=42]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_005.png" type="Texture" id=43]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_006.png" type="Texture" id=44]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_007.png" type="Texture" id=45]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_008.png" type="Texture" id=46]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_009.png" type="Texture" id=47]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_010.png" type="Texture" id=48]
+[ext_resource path="res://assets/visual/entity/wizard/Running/Running_011.png" type="Texture" id=49]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_000.png" type="Texture" id=50]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_001.png" type="Texture" id=51]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_002.png" type="Texture" id=52]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_003.png" type="Texture" id=53]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_004.png" type="Texture" id=54]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_005.png" type="Texture" id=55]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_006.png" type="Texture" id=56]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_007.png" type="Texture" id=57]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_008.png" type="Texture" id=58]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_009.png" type="Texture" id=59]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_010.png" type="Texture" id=60]
+[ext_resource path="res://assets/visual/entity/wizard/Swinging Rod/Swinging Rod_011.png" type="Texture" id=61]
 [ext_resource path="res://assets/visual/entity/wizard/Walking/Walking_000.png" type="Texture" id=62]
 [ext_resource path="res://assets/visual/entity/wizard/Walking/Walking_001.png" type="Texture" id=63]
 [ext_resource path="res://assets/visual/entity/wizard/Walking/Walking_002.png" type="Texture" id=64]
@@ -85,6 +85,7 @@
 [ext_resource path="res://assets/visual/entity/wizard/Walking/Walking_021.png" type="Texture" id=83]
 [ext_resource path="res://assets/visual/entity/wizard/Walking/Walking_022.png" type="Texture" id=84]
 [ext_resource path="res://assets/visual/entity/wizard/Walking/Walking_023.png" type="Texture" id=85]
+[ext_resource path="res://scripts/entity/AnimatedSequence.gd" type="Script" id=86]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 216.052, 267.184 )
@@ -104,23 +105,25 @@ animations = [ {
 "frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
 "loop": false,
 "name": "falling",
-"speed": 20.0
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
-"loop": false,
-"name": "attacking",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
 "loop": true,
 "name": "running",
-"speed": 5.0
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
+"loop": false,
+"name": "attacking",
+"speed": 13.0
 }, {
 "frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ) ],
 "loop": true,
 "name": "walking",
-"speed": 60.0
+"speed": 25.0
 } ]
+
+[sub_resource type="AudioStreamSample" id=3]
 
 [node name="Wizard" type="KinematicBody2D"]
 position = Vector2( 219.698, 267.632 )
@@ -134,8 +137,10 @@ shape = SubResource( 1 )
 
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 15
+frame = 4
 playing = true
+script = ExtResource( 86 )
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 3 )
 
