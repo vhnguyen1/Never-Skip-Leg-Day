@@ -1,15 +1,21 @@
 extends RigidBody2D
 
+const POINTS_LABEL_PATH = "../Points"
+
+const PLATFORM_POINTS = 10
+
 var jump_speed = 600 # how high character will jump
 var speed = 300 # how fast movement left to right
+var points = 0
 
 var sprite
+var points_label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite = get_node("Sprite") # uncomment when we get the sprite to work
+	points_label = get_node(POINTS_LABEL_PATH)
 	set_physics_process(true) # set_fixed_process(true)
-	pass
 
 func _physics_process(delta): # _fixed_process
 	var left_key = Input.is_action_pressed("ui_left") 
@@ -28,4 +34,7 @@ func _physics_process(delta): # _fixed_process
 func collision(body):
 	if body.is_in_group('Paddles') and get_linear_velocity().y >= 0:
 		set_linear_velocity(Vector2(0,-jump_speed))
+		points = int(points_label.text.split(" ")[1]) + PLATFORM_POINTS
+		points_label.text = "Points: " + str(points)
+		print("Current player points: " + str(points))
 	pass # Replace with function body.

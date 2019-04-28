@@ -1,12 +1,27 @@
 extends Node2D
 
+const DATABASE_SCRIPT_PATH = "res://scripts/db/Database.gd"
+const POINTS_LABEL_PATH = "./Points"
+const TIME_LABEL_PATH = "./Time"
+
 var platform = preload('res://objects/platform/Platform.tscn')
 var platform_extra = preload('res://objects/platform/Platform2.tscn')
 #var break_platform = preload('res://scenes/break_platform.tscn')
-var width 
+var width
+
+var database
+var points_label
+var time_label
 
 # game window is (1280 x 720)
 func _ready():
+	database = load(DATABASE_SCRIPT_PATH).new()
+	points_label = get_node(POINTS_LABEL_PATH)
+	time_label = get_node(TIME_LABEL_PATH)
+	
+	points_label.set_text("Points: 0")
+	time_label.set_text("Time: 0:00")
+	
 	width = get_viewport_rect().size.x
 	var x = -200 #initial platform under character
 	var y = 0
@@ -26,5 +41,3 @@ func _ready():
 			x = rand_range(x-400,x+400)
 		y -= rand_range(50,220) # max jump is ~230 right now
 		y2 -= rand_range(300, 700)
-		
-	pass # Replace with function body.
