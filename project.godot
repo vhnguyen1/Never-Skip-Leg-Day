@@ -15,31 +15,15 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Never Skip Leg Day"
-run/main_scene="res://scenes/MainLevel.tscn"
+config/name="Jumpers"
+run/main_scene="res://stages/GameMenu.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-Music="*res://scenes/Music.tscn"
-
-[debug]
-
-settings/crash_handler/message="Oops! An unexpected error has occurred. Sorry about that :("
-settings/stdout/verbose_stdout=true
-gdscript/completion/autocomplete_setters_and_getters=true
 
 [display]
 
-window/size/width=1280
-window/size/height=720
-
-[logging]
-
-file_logging/enable_file_logging=true
-file_logging/log_path="res://logs/log.txt"
+window/size/width=720
+window/size/height=960
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
