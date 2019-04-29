@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 180.4, 273.6 )
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -17,5 +17,5 @@ shape = SubResource( 1 )
 [node name="Animations" parent="." index="1"]
 position = Vector2( 519.402, 427.34 )
 scale = Vector2( 1, 0.998889 )
-frame = 11
+frame = 15
 
