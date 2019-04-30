@@ -27,7 +27,7 @@ func _ready():
 #	back_size = $Background/background_image.texture.get_size()
 #	screenW = get_viewport().get_visible_rect().size.y
 	#screenW = 920
-	back_size = $Background/background_image.texture.get_size()
+	back_size = $Node2D/Sprite.texture.get_size()
 	screenW = get_viewport().get_visible_rect().size.y
 	
 	
@@ -58,9 +58,9 @@ func _physics_process(delta):
 	#************falling obj************
 		var plank = planke.instance()
 		randomize()
-		plank.position.y = screenW - rand_range(860, 960)
+		plank.position.y = screenW - rand_range(760, 860)
 		randomize()
-		plank.position.x = rand_range(30, 690)
+		plank.position.x = rand_range(30, 530)
 		$planks.add_child(plank)
 	#************score count************
 		score += 1
