@@ -10,4 +10,3 @@ func _physics_process(delta):
 	if timer > 7:
 		global_position.x=1000
 		global_position.y=1000
-	

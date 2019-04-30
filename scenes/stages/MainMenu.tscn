@@ -1,0 +1,130 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://scripts/Parallax.gd" type="Script" id=1]
+[ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=2]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/visuals/ui/button_icon_set/TextBTN_Big.png" type="Texture" id=4]
+[ext_resource path="res://assets/visuals/ui/text/play.png" type="Texture" id=5]
+[ext_resource path="res://assets/visuals/ui/text/Settings.png" type="Texture" id=6]
+[ext_resource path="res://assets/visuals/ui/text/quit.png" type="Texture" id=7]
+[ext_resource path="res://assets/visuals/ui/text/Title.png" type="Texture" id=8]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_000.png" type="Texture" id=9]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_001.png" type="Texture" id=10]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_002.png" type="Texture" id=11]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_003.png" type="Texture" id=12]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_004.png" type="Texture" id=13]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_005.png" type="Texture" id=14]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_006.png" type="Texture" id=15]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_007.png" type="Texture" id=16]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_008.png" type="Texture" id=17]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_009.png" type="Texture" id=18]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_010.png" type="Texture" id=19]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_011.png" type="Texture" id=20]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_012.png" type="Texture" id=21]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_013.png" type="Texture" id=22]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_014.png" type="Texture" id=23]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_015.png" type="Texture" id=24]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_016.png" type="Texture" id=25]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_017.png" type="Texture" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "blink",
+"speed": 35.0
+} ]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource( 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="BG" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 971.641, 534.22 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1.92e+007, 1080 )
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.7894
+margin_top = -81.4748
+margin_right = 646.789
+margin_bottom = 263.526
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1233.0
+margin_bottom = 1225.0
+
+[node name="MenuOptions" type="VBoxContainer" parent="MainMenu/VBoxContainer"]
+pause_mode = 2
+margin_right = 1113.0
+margin_bottom = 1145.0
+size_flags_vertical = 3
+custom_constants/separation = 30
+alignment = 1
+
+[node name="PlayButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+margin_top = 374.0
+margin_right = 1113.0
+margin_bottom = 486.0
+texture_normal = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="MainMenu/VBoxContainer/MenuOptions/PlayButton"]
+position = Vector2( 165.024, 50.2248 )
+texture = ExtResource( 5 )
+
+[node name="Pause" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+visible = false
+margin_top = 325.0
+margin_right = 1673.0
+margin_bottom = 437.0
+texture_normal = ExtResource( 4 )
+
+[node name="SettingsButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+margin_top = 516.0
+margin_right = 1113.0
+margin_bottom = 628.0
+texture_normal = ExtResource( 4 )
+
+[node name="Setting text" type="Sprite" parent="MainMenu/VBoxContainer/MenuOptions/SettingsButton"]
+position = Vector2( 172.364, 47.2228 )
+scale = Vector2( 0.890927, 0.914648 )
+texture = ExtResource( 6 )
+
+[node name="QuitButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
+margin_top = 658.0
+margin_right = 1113.0
+margin_bottom = 770.0
+texture_normal = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="MainMenu/VBoxContainer/MenuOptions/QuitButton"]
+position = Vector2( 165.024, 47.8331 )
+texture = ExtResource( 7 )
+
+[node name="Title" type="Sprite" parent="MainMenu"]
+position = Vector2( 644.073, 203.634 )
+scale = Vector2( 1.7357, 1.7357 )
+texture = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 881.485, 443.532 )
+scale = Vector2( 0.671458, 0.665259 )
+frames = SubResource( 1 )
+animation = "blink"
+frame = 11
+playing = true
+

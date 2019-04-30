@@ -1,31 +1,29 @@
 extends Node
 
+const PLATFORM_SCENE_PATH = "res://scenes/platforms/"
+const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
+
+const SPEED = 2
+
 #************some numbers here************
-const SPEED =2
 
 var back_size
-
-var screenW= 0
-
+var screenW = 0
 var timer = 0
-
 var score = 0
-
 var max_score = 0
-
 var need_save = false
-
 var gamedata = 'user://gamedata-test.save' #Place to save result
 
-var fs = File.new()
-
+var fs
 var GAME = true
-
 var SAVE = 0
-
-var planke = preload("res://scenes/plank.tscn") #Create scene as var
+var planke #Create scene as var
 
 func _ready():
+	fs = File.new()
+	planke = preload(PLANK_PATH)
+	
 #	back_size = $Background/background_image.texture.get_size()
 #	screenW = get_viewport().get_visible_rect().size.y
 	screenW = 920
@@ -120,9 +118,3 @@ func _on_Retry_pressed():
 	GAME = true
 	get_tree().paused = false
 	$Start_screen/ColorRect/StartButton/Start_music/StartSound.play('soundstart')
-
-
-
-
-
-

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Loading.ogv" type="VideoStream" id=1]
+[ext_resource path="res://scripts/StartScreen.gd" type="Script" id=2]
+
+[node name="StartScreen" type="VideoPlayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+stream = ExtResource( 1 )
+expand = false
+script = ExtResource( 2 )
+

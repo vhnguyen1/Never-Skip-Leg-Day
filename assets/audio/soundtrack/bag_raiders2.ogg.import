@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bag_raiders2.ogg-14f23f8a774062c18a54e76b86e00fa1.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/bag_raiders2.ogg"
+dest_files=[ "res://.import/bag_raiders2.ogg-14f23f8a774062c18a54e76b86e00fa1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
