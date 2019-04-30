@@ -26,7 +26,10 @@ func _ready():
 	
 #	back_size = $Background/background_image.texture.get_size()
 #	screenW = get_viewport().get_visible_rect().size.y
-	screenW = 920
+	#screenW = 920
+	back_size = $Background/background_image.texture.get_size()
+	screenW = get_viewport().get_visible_rect().size.y
+	
 	
 	#************loading save from file************
 	fs.open(gamedata, File.READ)
