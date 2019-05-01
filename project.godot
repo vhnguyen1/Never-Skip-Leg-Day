@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Jumpers"
+config/name="Never Skip Leg Day"
 run/main_scene="res://scenes/stages/MainMenu.tscn"
 config/icon="res://icon.png"
 
