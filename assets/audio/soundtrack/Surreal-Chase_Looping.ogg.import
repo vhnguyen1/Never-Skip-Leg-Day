@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Surreal-Chase_Looping.ogg-2c787e24dedd3a94bf08a6e772426b3f.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/Surreal-Chase_Looping.ogg"
+dest_files=[ "res://.import/Surreal-Chase_Looping.ogg-2c787e24dedd3a94bf08a6e772426b3f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

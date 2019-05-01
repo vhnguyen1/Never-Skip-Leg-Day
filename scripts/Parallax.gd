@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-const SCROLLING_SPEED = 3
+const SCROLLING_SPEED = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
