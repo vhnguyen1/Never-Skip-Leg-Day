@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var SPEED = 3.5
+const SPEED = 3.5
 
 #var SPEED_LEVEL = 80
 
@@ -17,5 +17,3 @@ func _physics_process(delta):
 	#************blink************
 	if $"../../".score > 32:
 		$AnimatedSprite.play()
-	
-	pass

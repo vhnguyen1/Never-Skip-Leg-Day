@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/PlayerChar.gd" type="Script" id=1]
-[ext_resource path="res://visuals/trex kirby.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/visuals/player/Player.png" type="Texture" id=2]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 25.5547
@@ -12,6 +13,9 @@ extents = Vector2( 12.9504, 2.04366 )
 [node name="Player" type="Area2D" groups=[
 "player",
 ]]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -0.314881, 0.0393251 )
