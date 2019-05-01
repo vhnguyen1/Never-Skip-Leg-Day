@@ -12,4 +12,5 @@ func _physics_process(delta):
 	STATUS = is_playing()
 	if STATUS == false:
 		$"../../".hide()
+		
 

@@ -17,6 +17,7 @@ var paused = true;
 func _ready():
 	$VBoxContainer/MenuOptions/PlayButton.connect(PRESSED_CODE, self, "_load_game")
 	$VBoxContainer/MenuOptions/SettingsButton.connect(PRESSED_CODE, self, "_load_options")
+	# Change these to NODE ON BUTTON CLICK later, so as to be able to keep track of music time elapsed	
 	$VBoxContainer/MenuOptions/QuitButton.connect(PRESSED_CODE, self, "_quit")
 	$VBoxContainer/MenuOptions/Pause.connect(PRESSED_CODE, self, "_pause")
 	
