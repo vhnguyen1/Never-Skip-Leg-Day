@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/Level_1.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/backdrops/sky/sky background.PNG" type="Texture" id=2]
@@ -24,21 +24,22 @@
 [ext_resource path="res://assets/visuals/ui/button_icon_set/ROUND BTN  pause.png" type="Texture" id=22]
 [ext_resource path="res://assets/visuals/ouch!.png" type="Texture" id=23]
 [ext_resource path="res://assets/audio/soundtrack/bag_raiders2.ogg" type="AudioStream" id=24]
+[ext_resource path="res://scripts/AudioLoop.gd" type="Script" id=25]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 func _physics_process(delta):
-	pass	"
+	pass"
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 54.238, 2.65527 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 60
 font_data = ExtResource( 15 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 23.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -58,21 +59,21 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 55
 font_data = ExtResource( 15 )
 
-[sub_resource type="InputEventAction" id=6]
+[sub_resource type="InputEventAction" id=7]
 action = "ui_accept"
 
-[sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 6 )
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 55
 font_data = ExtResource( 15 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 15.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -281,7 +282,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlank"]
 position = Vector2( 331.342, 840.727 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="StartPlank"]
 position = Vector2( 330, 850 )
@@ -308,7 +309,7 @@ margin_top = 98.7547
 margin_right = 422.175
 margin_bottom = 159.755
 rect_scale = Vector2( 1.5, 1.5 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "LEVEL 1"
@@ -325,7 +326,7 @@ script = ExtResource( 16 )
 stream = ExtResource( 17 )
 
 [node name="StartSound" type="AnimationPlayer" parent="Start_screen/ColorRect/StartButton/Start_music"]
-anims/soundstart = SubResource( 4 )
+anims/soundstart = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Start_screen/ColorRect/StartButton"]
 position = Vector2( 85.6337, 62.5772 )
@@ -411,7 +412,7 @@ margin_left = 214.0
 margin_top = 360.0
 margin_right = 438.0
 margin_bottom = 433.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "RESUME"
@@ -425,7 +426,7 @@ margin_left = -44.5198
 margin_top = -24.052
 margin_right = 250.48
 margin_bottom = 63.948
-shortcut = SubResource( 7 )
+shortcut = SubResource( 8 )
 
 [node name="Exit_label" type="Label" parent="Pause_screen/ColorRect"]
 pause_mode = 2
@@ -433,7 +434,7 @@ margin_left = 255.208
 margin_top = 494.763
 margin_right = 460.208
 margin_bottom = 555.763
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "EXIT"
@@ -466,7 +467,7 @@ margin_left = 101.343
 margin_top = 226.978
 margin_right = 519.343
 margin_bottom = 282.978
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "YOUR SCORE:"
@@ -477,7 +478,7 @@ margin_left = 93.0287
 margin_top = 336.485
 margin_right = 533.029
 margin_bottom = 395.485
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "HIGH SCORE:"
@@ -488,7 +489,7 @@ margin_left = 181.459
 margin_top = 441.167
 margin_right = 445.459
 margin_bottom = 502.167
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TRY AGAIN"
@@ -500,7 +501,7 @@ margin_left = -47.0
 margin_top = -20.0
 margin_right = 250.0
 margin_bottom = 68.0
-shortcut = SubResource( 7 )
+shortcut = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -511,7 +512,7 @@ margin_left = 211.738
 margin_top = 528.434
 margin_right = 416.738
 margin_bottom = 589.434
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "QUIT"
@@ -539,9 +540,10 @@ position = Vector2( 280, 400 )
 editor/display_folded = true
 stream = ExtResource( 24 )
 mix_target = 2
+script = ExtResource( 25 )
 
 [node name="GameMusic" type="AnimationPlayer" parent="GameMusic"]
-anims/GameSound = SubResource( 9 )
+anims/GameSound = SubResource( 10 )
 
 [connection signal="pressed" from="Start_screen/ColorRect/StartButton" to="Start_screen/ColorRect/StartButton" method="_on_StartButton_pressed"]
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_PauseButton_pressed"]

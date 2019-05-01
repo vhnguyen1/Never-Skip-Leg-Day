@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/player/Player.png" type="Texture" id=2]
 
+[sub_resource type="AudioStreamSample" id=1]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 25.5547
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12.9504, 2.04366 )
 
 [node name="Player" type="Area2D" groups=[
@@ -17,10 +18,13 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 1 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -0.314881, 0.0393251 )
 scale = Vector2( 0.882229, 0.95813 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="PlayerChar" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
@@ -33,5 +37,5 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerChar"]
 position = Vector2( -0.0115337, 31.5325 )
 scale = Vector2( 0.991811, 1.00725 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 

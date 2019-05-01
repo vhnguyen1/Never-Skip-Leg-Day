@@ -1,5 +1,6 @@
 extends Node
 
+const SFX_PLAYER_PATH = "./SFXPlayer"
 const PLATFORM_SCENE_PATH = "res://scenes/platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
 
@@ -15,10 +16,11 @@ var max_score = 0
 var need_save = false
 var gamedata = 'user://gamedata-test.save' #Place to save result
 
-var fs
 var GAME = true
 var SAVE = 0
-var planke #Create scene as var
+
+var fs
+var planke # Create scene as var
 
 func _ready():
 	fs = File.new()
@@ -85,7 +87,7 @@ func _physics_process(delta):
 	
 #************exit btn proc************
 func _on_Exit_pressed():
-	if (need_save == true):
+	if (need_save):
 		savegame()
 	get_tree().quit()
 
@@ -103,7 +105,7 @@ func _on_Resume_pressed():
 
 #************retry btn proc************
 func _on_Retry_pressed():
-	if (need_save == true):
+	if (need_save):
 		savegame()
 	SAVE = 0
 	score = 0
@@ -121,3 +123,7 @@ func _on_Retry_pressed():
 	GAME = true
 	get_tree().paused = false
 	$Start_screen/ColorRect/StartButton/Start_music/StartSound.play('soundstart')
+	
+func _play_sound(sound_path):
+	sfx_player.stream = load(sound_path)
+	sfx_player.play(0.0)

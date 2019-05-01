@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+const SFX_PLAYER_PATH = "./SFXPlayer"
+const BOUNCE_SOUND_EFFECT_PATH = "res://assets/audio/sound_effects/player/bounce.wav"
+
 const LEFT_ARROW_CODE = "ui_left"
 const RIGHT_ARROW_CODE = "ui_right"
 
@@ -7,9 +10,12 @@ const SPEED = 350
 const GRAV = 15
 const JUMP = 700
 
-var vel = Vector2()
+var vel
+var sfx_player
 
 func _ready():
+	vel = Vector2()
+	sfx_player = get_node(SFX_PLAYER_PATH)
 	print (global_position)
 
 func _physics_process(delta):
@@ -49,3 +55,15 @@ func _physics_process(delta):
 		$"../../GUI".hide()
 		#if ($"../../".score < $"../../".max_score):
 			#$"../../".savegame()
+
+func _on_Area2D_body_entered(other):
+	var object_name = other.get_name()
+	print("Player collision with " + object_name + "!")
+
+	if(object_name == "Plank"):
+		print("*Bounce*")
+		_play_sound(BOUNCE_SOUND_EFFECT_PATH)
+		
+func _play_sound(sound_path):
+	sfx_player.stream = load(sound_path)
+	sfx_player.play(0.0)

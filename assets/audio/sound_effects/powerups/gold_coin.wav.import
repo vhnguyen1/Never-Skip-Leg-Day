@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gold_coin.wav-f82ffa456c7d461d5b60ef56b69e8b3c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound_effects/powerups/gold_coin.wav"
+dest_files=[ "res://.import/gold_coin.wav-f82ffa456c7d461d5b60ef56b69e8b3c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
