@@ -115,6 +115,9 @@ func _on_Retry_pressed():
 	
 	#$Player.global_position.x=-300
 	#$Player.global_position.y= 2800
+
+	$Player.show()
+	
 	GAME = true
 	get_tree().paused = false
 	$Start_screen/ColorRect/StartButton/Start_music/StartSound.play('soundstart')
