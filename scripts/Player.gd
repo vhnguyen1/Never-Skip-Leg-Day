@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal death
 
+const DEFAULT_ENEMY_CODE = "enemy"
+const DEFAULT_HIT_CODE = "hit"
 
 export (NodePath) var visibility_notifier_path
 onready var visibility_notifier = get_node("visibility_notifier_path")
@@ -96,9 +98,9 @@ func _on_PlayerChar_death():
 #	$"../../GUI".hide()
 
 func _on_Player_area_entered(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group(DEFAULT_ENEMY_CODE):
 		vel = vel.bounce(collision.normal)
-		if collision.collider.has_method("hit"):
+		if collision.collider.has_method(DEFAULT_HIT_CODE):
 			collision.collider.hit()
 			print("hit!")
 			$CollisionShape2D.disabled = false
