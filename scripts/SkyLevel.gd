@@ -37,10 +37,10 @@ const YOUR_SCORE = "YOUR SCORE: "
 const HIGH_SCORE = "HIGH SCORE: "
 const GAME_LOADED = "Level 1 loaded!"
 const GAME_SAVED = "Progress saved!"
-const DATABASE_POINTS_CODE = "points"
+const DATABASE_POINTS_CODE = "sky_points"
 const BASE_PLAYER_ID = 1
 
-#************ Adjustable variables ************
+#------------------------- Adjustable variables #-------------------------#
 
 var back_size
 var screen_width = 0
