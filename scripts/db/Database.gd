@@ -160,7 +160,7 @@ func _update(id, field, new_data):
 		return
 	
 	var query = UPDATE + PROFILES_DATABASE_TABLE_NAME
-	query += SET + field + "='" + new_data + "'"
+	query += SET + field + "='" + str(new_data) + "'"
 	query += WHERE + PROFILES_PRIMARY_KEY_FIELD_NAME + "='" + str(id) + "';"
 	db.query(query);
 	print(query)

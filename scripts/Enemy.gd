@@ -32,11 +32,6 @@ func _ready():
 	
 	# Informs the console when Entity is created.
 	print(self.m_name + " has spawned!")
-
-# Called every frame.
-# @param delta The elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 # Collision detection
 func _on_body_enter(other):

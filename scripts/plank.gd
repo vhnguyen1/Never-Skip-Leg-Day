@@ -1,19 +1,27 @@
 extends KinematicBody2D
 
-const SPEED = 3.5
+#------------------------- Constants ------------------------------------#
 
-#var SPEED_LEVEL = 80
+const SPEED = 3.5 # Rate at which Plank falls
+const UPPER_Y_BOUND = 980
+const MEME_CAP = 32
 
+#------------------------- Functions ------------------------------------#
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+# Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
+# @param delta Time passed
 func _physics_process(delta):
-	#************Falling Down ((((( xxx&lil(((((************
+	# Rate at w
 	position.y += SPEED
-	#if $"../../".score > SPEED_LEVEL:
-	#	SPEED += 0.05
-	#	SPEED_LEVEL += 70
-	#************del if player don't see plank************
-	if position.y > 980:
-		#print('del')
+
+	# Removes a given plank if it is not in the screen boundaries
+	if position.y > UPPER_Y_BOUND:
 		queue_free()
-	#************blink************
-	if $"../../".score > 32:
+		
+	# Play the color-swapping plank animation for Meme Overload
+	if $"../../".score > MEME_CAP:
 		$AnimatedSprite.play()

@@ -5,7 +5,7 @@
 # @author Chy Lim
 # @author Vincent Nguyen
 
-extends Node
+extends Node2D
 
 #------------------------- Directory Paths ------------------------------------#
 
@@ -13,6 +13,7 @@ const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
 const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' #Place to save result
+const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
 
 #------------------------- Constants ------------------------------------#
 
@@ -36,11 +37,13 @@ const YOUR_SCORE = "YOUR SCORE: "
 const HIGH_SCORE = "HIGH SCORE: "
 const GAME_LOADED = "Level 1 loaded!"
 const GAME_SAVED = "Progress saved!"
+const DATABASE_POINTS_CODE = "points"
+const BASE_PLAYER_ID = 1
 
 #************ Adjustable variables ************
 
 var back_size
-var screenW = 0
+var screen_width = 0
 var timer = 0
 var score = 0
 var max_score = 0
@@ -53,25 +56,29 @@ var SAVE = 0
 
 var fs
 var planke #Create scene as var
+var database
 
 #------------------------- Functions ------------------------------------#
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load up necessary resources
-	fs = File.new()
+	#fs = File.new()
 	planke = preload(PLANK_PATH)
+	database = load(SQL_DATABASE_PATH).new()
 	
 	# Initialize screen dimensions
 	#back_size = $Background/background_image.texture.get_size()
-	#screenW = get_viewport().get_visible_rect().size.y
-	screenW = DEFAULT_SCREEN_WIDTH_DIMENSION
+	#screen_width = get_viewport().get_visible_rect().size.y
+	screen_width = DEFAULT_SCREEN_WIDTH_DIMENSION
 	
-	#************ Loads save from file ************
-	fs.open(GAME_DATA_FILE_SAVE, File.READ)
-	max_score = fs.get_64()
-	fs.close()
-	#**********************************************
+	# Load save from database
+	max_score = database._get_value(BASE_PLAYER_ID, DATABASE_POINTS_CODE)
+	
+	# Load save from file
+	#fs.open(GAME_DATA_FILE_SAVE, File.READ)
+	#max_score = fs.get_64()
+	#fs.close()
 	
 	# Pauses the game (for click to start)
 	print(GAME_LOADED)
@@ -80,35 +87,39 @@ func _ready():
 # Saves the player's current score into the database
 #************saving result func************
 func _save_game():
+	# Update player save in database
+	database._update(BASE_PLAYER_ID, DATABASE_POINTS_CODE, score)
+	
 	# Open up save file and makes it writable
-	fs.open(GAME_DATA_FILE_SAVE, File.WRITE)
+	#fs.open(GAME_DATA_FILE_SAVE, File.WRITE)
 	
 	# Stores the player score to be added
-	fs.store_64(score)
+	#fs.store_64(score)
 	
 	# Closes the file
-	fs.close()
+	#fs.close()
+	
 	print(GAME_SAVED)
-	#******************************************
 
 # Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
 # @param delta Time passed
 func _physics_process(delta):
-	#************ Parallax Background ************
+	# Parallax Background
 	timer += delta
-	#*****************************************
+	
 	if timer > PLATFORM_TIMER_DELAY:
-	#************falling obj************
+		# Generate random plank spawn obj
 		var plank = planke.instance()
 		randomize()
 		
-		plank.position.y = screenW - rand_range(PLANK_SPAWN_Y_MIN_BOUND, PLANK_SPAWN_Y_MAX_BOUND)
+		plank.position.y = screen_width - rand_range(PLANK_SPAWN_Y_MIN_BOUND, PLANK_SPAWN_Y_MAX_BOUND)
 		randomize()
 		
 		plank.position.x = rand_range(PLANK_SPAWN_X_MIN_BOUND, PLANK_SPAWN_X_MAX_BOUND)
-		$planks.add_child(plank)
-	#************score count************
+		$Plank.add_child(plank)
+	#************ score count ************
 		score += DEFAULT_SCORE_INCREMENT
+		
 		if (score == MEME_TIME_AMOUNT):
 			$GameMusic.play()
 			
@@ -144,11 +155,12 @@ func _on_Exit_pressed():
 # Pause button proc
 func _on_PauseButton_pressed():
 	# Checks if music is playing and stops it if it is
-	if ($GameMusic/GameMusic.is_playing() == true):
+	if ($GameMusic/GameMusic.is_playing()):
 		music_time = $GameMusic/GameMusic.get_playback_position()
+		$GameMusic/GameMusic.stop()
+		
 		print(music_time)
 		print($Start_screen/ColorRect/StartButton/Start_music.get_playback_position())
-		$GameMusic/GameMusic.stop()
 	
 	# Pauses the game
 	get_tree().paused = true
@@ -185,7 +197,7 @@ func _on_Retry_pressed():
 	$StartPlank.position.y = START_PLANK_Y
 	
 	# Rids previously generated platforms to reset
-	for i in $planks.get_children():
+	for i in $Plank.get_children():
     	i.queue_free()
 
 	# Reveal player at start location (above start plank)

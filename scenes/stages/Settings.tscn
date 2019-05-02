@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/SettingMenuNode.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Parallax.gd" type="Script" id=2]
+[ext_resource path="res://scripts/HorizontalParallax.gd" type="Script" id=2]
 [ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=3]
 [ext_resource path="res://scripts/SettingMenu.gd" type="Script" id=4]
 [ext_resource path="res://assets/visuals/ui/button_icon_set/TextBTN_Big.png" type="Texture" id=5]

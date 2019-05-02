@@ -1,6 +1,6 @@
 [gd_scene load_steps=87 format=2]
 
-[ext_resource path="res://scripts/Entity.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/enemies/yeti/Idle Blinking/Idle Blinking_000.png" type="Texture" id=2]
 [ext_resource path="res://assets/visuals/enemies/yeti/Idle Blinking/Idle Blinking_001.png" type="Texture" id=3]
 [ext_resource path="res://assets/visuals/enemies/yeti/Idle Blinking/Idle Blinking_002.png" type="Texture" id=4]
@@ -83,6 +83,7 @@
 [ext_resource path="res://assets/visuals/enemies/yeti/Walking/Walking_016.png" type="Texture" id=81]
 [ext_resource path="res://assets/visuals/enemies/yeti/Walking/Walking_017.png" type="Texture" id=82]
 [ext_resource path="res://scripts/AnimatedSequence.gd" type="Script" id=83]
+
 
 
 
