@@ -54,19 +54,19 @@ func _ready():
 	#$VBoxContainer/MenuOptions/SettingsButton.connect(PRESSED_CODE, self, LOAD_OPTIONS_FUNCTION_NAME)
 	#$VBoxContainer/MenuOptions/QuitButton.connect(PRESSED_CODE, self, QUIT_FUNCTION_NAME)
 	#$VBoxContainer/MenuOptions/Pause.connect(PRESSED_CODE, self, PAUSE_GAME_FUNCTION_NAME)
-	
+
 # Plays the game
 func _load_game():
 	get_tree().change_scene(START_GAME_PATH)
-	
-# Pauses the game
-func _pause():
-	get_tree().paused = !paused
 
 # Opens options probably for instructions on how to play
 func _load_options():
 	get_tree().change_scene(SETTINGS_PATH)
-	
+
 # Quits game || closes the game
 func _quit():
 	get_tree().quit()
+
+# Pauses the game
+func _pause():
+	get_tree().paused = !paused

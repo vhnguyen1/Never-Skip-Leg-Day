@@ -16,7 +16,8 @@ const GRAV = 15
 const JUMP = 500
 
 var vel = Vector2()
-var collision 
+var collision
+
 func _ready():
 	#print (global_position)
 	pass

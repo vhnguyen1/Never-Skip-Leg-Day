@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/SkyLevel.gd" type="Script" id=1]
 [ext_resource path="res://scripts/VerticalParallax.gd" type="Script" id=2]
@@ -10,19 +10,20 @@
 [ext_resource path="res://assets/visuals/memes/monkas.png" type="Texture" id=8]
 [ext_resource path="res://assets/visuals/memes/pog.png" type="Texture" id=9]
 [ext_resource path="res://assets/visuals/memes/triangle.png" type="Texture" id=10]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/StartPlank.gd" type="Script" id=12]
-[ext_resource path="res://assets/visuals/plank2.png" type="Texture" id=13]
-[ext_resource path="res://fonts/11814.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://scripts/StartButton.gd" type="Script" id=15]
-[ext_resource path="res://assets/audio/soundtrack/bag_raiders_starting.ogg" type="AudioStream" id=16]
-[ext_resource path="res://assets/visuals/ui/button_icon_set/TEXT BTN  start.png" type="Texture" id=17]
-[ext_resource path="res://assets/visuals/arrow2.png" type="Texture" id=18]
-[ext_resource path="res://scenes/stages/StartScreen.tscn" type="PackedScene" id=19]
-[ext_resource path="res://fonts/Font_theme.tres" type="Theme" id=20]
-[ext_resource path="res://assets/visuals/ui/button_icon_set/ROUND BTN  pause.png" type="Texture" id=21]
-[ext_resource path="res://assets/visuals/ouch!.png" type="Texture" id=22]
-[ext_resource path="res://assets/audio/soundtrack/bag_raiders.ogg" type="AudioStream" id=23]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=11]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/StartPlank.gd" type="Script" id=13]
+[ext_resource path="res://assets/visuals/plank2.png" type="Texture" id=14]
+[ext_resource path="res://fonts/11814.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://scripts/StartButton.gd" type="Script" id=16]
+[ext_resource path="res://assets/audio/soundtrack/bag_raiders_starting.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/visuals/ui/button_icon_set/TEXT BTN  start.png" type="Texture" id=18]
+[ext_resource path="res://assets/visuals/arrow2.png" type="Texture" id=19]
+[ext_resource path="res://scenes/stages/StartScreen.tscn" type="PackedScene" id=20]
+[ext_resource path="res://fonts/Font_theme.tres" type="Theme" id=21]
+[ext_resource path="res://assets/visuals/ui/button_icon_set/ROUND BTN  pause.png" type="Texture" id=22]
+[ext_resource path="res://assets/visuals/ouch!.png" type="Texture" id=23]
+[ext_resource path="res://assets/audio/soundtrack/bag_raiders.ogg" type="AudioStream" id=24]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -38,7 +39,7 @@ extents = Vector2( 54.238, 2.65527 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 60
-font_data = ExtResource( 14 )
+font_data = ExtResource( 15 )
 
 [sub_resource type="Animation" id=4]
 length = 23.0
@@ -62,7 +63,7 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=5]
 size = 55
-font_data = ExtResource( 14 )
+font_data = ExtResource( 15 )
 
 [sub_resource type="InputEventAction" id=6]
 action = "ui_accept"
@@ -72,7 +73,7 @@ shortcut = SubResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 55
-font_data = ExtResource( 14 )
+font_data = ExtResource( 15 )
 
 [sub_resource type="Animation" id=9]
 length = 15.0
@@ -261,13 +262,17 @@ script = ExtResource( 6 )
 [node name="Plank" type="Node2D" parent="."]
 script = SubResource( 1 )
 
-[node name="Player" parent="." instance=ExtResource( 11 )]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 280, 400 )
+script = ExtResource( 11 )
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 293, 593 )
 
 [node name="StartPlank" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( -40.1171, -180.29 )
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -278,7 +283,7 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="StartPlank"]
 position = Vector2( 330, 850 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="Start_screen" type="Control" parent="."]
 margin_right = 40.0
@@ -311,10 +316,10 @@ margin_left = 212.0
 margin_top = 642.0
 margin_right = 407.0
 margin_bottom = 753.0
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="Start_music" type="AudioStreamPlayer" parent="Start_screen/ColorRect/StartButton"]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = -5.0
 
 [node name="StartSound" type="AnimationPlayer" parent="Start_screen/ColorRect/StartButton/Start_music"]
@@ -323,19 +328,19 @@ anims/soundstart = SubResource( 4 )
 [node name="Sprite" type="Sprite" parent="Start_screen/ColorRect/StartButton"]
 position = Vector2( 85.6337, 62.5772 )
 scale = Vector2( 0.785204, 1.02667 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 
 [node name="arrow" type="Sprite" parent="Start_screen/ColorRect"]
 position = Vector2( 507.334, 641.465 )
 rotation = 2.19441
 scale = Vector2( 0.478179, 0.433263 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="arrow2" type="Sprite" parent="Start_screen/ColorRect"]
 position = Vector2( 94.5685, 627.725 )
 rotation = 1.1005
 scale = Vector2( 0.478179, -0.45483 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="LoadingScreen" type="Control" parent="."]
 margin_right = 40.0
@@ -348,7 +353,7 @@ margin_right = 571.0
 margin_bottom = 821.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Loading_screen" parent="LoadingScreen/Loading_screen" instance=ExtResource( 19 )]
+[node name="Loading_screen" parent="LoadingScreen/Loading_screen" instance=ExtResource( 20 )]
 pause_mode = 2
 margin_left = 18.0
 margin_top = 195.0
@@ -369,7 +374,7 @@ margin_left = 18.0
 margin_top = 19.0
 margin_right = 258.0
 margin_bottom = 64.0
-theme = ExtResource( 20 )
+theme = ExtResource( 21 )
 text = "SCORE: "
 __meta__ = {
 "_edit_lock_": true
@@ -384,7 +389,7 @@ margin_bottom = 52.0
 [node name="Icon" type="Sprite" parent="GUI/PauseButton"]
 position = Vector2( 19.6531, 25.8932 )
 scale = Vector2( 0.405368, 0.372807 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 
 [node name="Pause_screen" type="Control" parent="."]
 visible = false
@@ -522,13 +527,10 @@ margin_bottom = 65.4474
 [node name="Sprite" type="Sprite" parent="End_screen/ColorRect"]
 position = Vector2( 389.293, 1073 )
 scale = Vector2( 0.527663, 0.51903 )
-texture = ExtResource( 22 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 280, 400 )
+texture = ExtResource( 23 )
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 23 )
+stream = ExtResource( 24 )
 volume_db = -10.0
 mix_target = 2
 

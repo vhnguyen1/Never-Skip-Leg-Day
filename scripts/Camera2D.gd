@@ -1,7 +1,7 @@
 extends Camera2D
 
 #export(NodePath) var player_path
-const PLAYER_PATH = "../Player"
+const PLAYER_PATH = "../Player/PlayerChar"
 
 var player = null
 

@@ -85,7 +85,7 @@ func _ready():
 	get_tree().paused = true
 
 # Saves the player's current score into the database
-#************saving result func************
+# Saving result func
 func _save_game():
 	# Update player save in database
 	database._update(BASE_PLAYER_ID, DATABASE_POINTS_CODE, score)
