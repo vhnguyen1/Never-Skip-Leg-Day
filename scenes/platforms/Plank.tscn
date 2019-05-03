@@ -15,10 +15,6 @@
 [ext_resource path="res://assets/visuals/platforms/sky/plank_anim/11.png" type="Texture" id=13]
 [ext_resource path="res://assets/visuals/platforms/sky/plank_anim/12.png" type="Texture" id=14]
 
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 56.3009, 12.4171 )
 
