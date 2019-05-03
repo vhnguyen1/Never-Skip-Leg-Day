@@ -26,7 +26,7 @@ animations = [ {
 "speed": 11.0
 } ]
 
-[node name="plank" type="KinematicBody2D"]
+[node name="Plank" type="KinematicBody2D"]
 position = Vector2( -11.1, -12.994 )
 scale = Vector2( 0.653125, 0.593937 )
 script = ExtResource( 1 )
