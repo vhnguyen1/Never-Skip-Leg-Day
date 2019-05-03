@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/GameMenu.gd" type="Script" id=1]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
@@ -26,8 +26,7 @@
 [ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_017.png" type="Texture" id=24]
 [ext_resource path="res://assets/visuals/ui/text/Title.png" type="Texture" id=25]
 [ext_resource path="res://assets/audio/soundtrack/Game-Menu_Looping.ogg" type="AudioStream" id=26]
-[ext_resource path="res://scripts/Parallax.gd" type="Script" id=27]
-[ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=28]
+[ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -112,6 +111,7 @@ position = Vector2( 450, 450 )
 scale = Vector2( 0.435093, 0.442568 )
 frames = SubResource( 1 )
 animation = "blink"
+frame = 1
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
@@ -125,7 +125,6 @@ stream = ExtResource( 26 )
 [node name="MenuMusic" type="AnimationPlayer" parent="MenuMusic"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource( 27 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 editor/display_folded = true
@@ -133,7 +132,7 @@ motion_mirroring = Vector2( 1920, 0 )
 
 [node name="BG" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2( 1, 0.75 )
-texture = ExtResource( 28 )
+texture = ExtResource( 27 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1080 )
