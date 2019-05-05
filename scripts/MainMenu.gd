@@ -75,7 +75,7 @@ func _input(event):
 		click_text.visible = false
 		get_tree().set_input_as_handled()
 		is_displaying_splashscreen = false
-	elif !is_displaying_splashscreen and event.is_pressed() and event.scancode == KEY_ESCAPE:
+	elif !is_displaying_splashscreen and event is InputEventKey and event.is_pressed() and event.scancode == KEY_ESCAPE:
 		self.visible = false
 		avatar_sprite.visible = false
 		click_text.visible = true
