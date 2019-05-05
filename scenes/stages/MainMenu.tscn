@@ -114,6 +114,7 @@ animation = "blink"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 frame = 8
 =======
 frame = 2
@@ -124,6 +125,9 @@ frame = 1
 =======
 frame = 16
 >>>>>>> parent of b42e9ac... Renamed project/game name.
+=======
+frame = 14
+>>>>>>> master
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
