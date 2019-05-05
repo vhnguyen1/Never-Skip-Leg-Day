@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/enemies/Anubis.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/platforms/Plank.tscn" type="PackedScene" id=2]
+
+[node name="AnubisPlank" type="Node2D"]
+position = Vector2( -5, -15.0001 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Anubis" parent="." instance=ExtResource( 1 )]
+position = Vector2( -90.8462, -11.5356 )
+
+[node name="Plank" parent="." instance=ExtResource( 2 )]
+position = Vector2( 42.9114, 115.034 )
+

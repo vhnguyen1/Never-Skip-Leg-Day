@@ -4,7 +4,7 @@ extends KinematicBody2D
 
 const SPEED = 3.5 # Rate at which Plank falls
 const UPPER_Y_BOUND = 980
-const MEME_CAP = 32
+const MEME_CAP = 2
 
 #------------------------- Functions ------------------------------------#
 
@@ -23,5 +23,5 @@ func _physics_process(delta):
 		queue_free()
 		
 	# Play the color-swapping plank animation for Meme Overload
-	if $"../../".score > MEME_CAP:
-		$AnimatedSprite.play()
+	#if $"../../".score > MEME_CAP:
+		#$AnimatedSprite.play()
