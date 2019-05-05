@@ -12,6 +12,9 @@ extends Node2D
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
+const KNIGHT_PLANK_PATH = PLATFORM_SCENE_PATH + "KnightPlank.tscn"
+const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "WizardPlank.tscn"
+const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "AnubisPlank.tscn"
 const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' # Place to save result
 const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
 
@@ -54,8 +57,12 @@ var SAVE = 0
 
 #------------------------- Resources ------------------------------------#
 
-#var fs
+var fs
 var planke #Create scene as var
+var knight_plank
+var wizard_plank
+var anubis_plank
+var random_plank_spawner
 var database
 
 #------------------------- Functions ------------------------------------#
@@ -63,9 +70,12 @@ var database
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load up necessary resources
-	#fs = File.new()
+	fs = File.new()
 	planke = preload(PLANK_PATH)
-	database = load(SQL_DATABASE_PATH).new()
+	knight_plank = preload(KNIGHT_PLANK_PATH)
+	wizard_plank = preload(WIZARD_PLANK_PATH)
+	anubis_plank = preload(ANUBIS_PLANK_PATH)
+	#database = load(SQL_DATABASE_PATH).new()
 	
 	# Initialize screen dimensions
 	#back_size = $Background/background_image.texture.get_size()
@@ -73,12 +83,12 @@ func _ready():
 	screen_width = DEFAULT_SCREEN_WIDTH_DIMENSION
 	
 	# Load save from database
-	max_score = database._get_value(BASE_PLAYER_ID, DATABASE_POINTS_CODE)
+	#max_score = database._get_value(BASE_PLAYER_ID, DATABASE_POINTS_CODE)
 	
 	# Load save from file
-	#fs.open(GAME_DATA_FILE_SAVE, File.READ)
-	#max_score = fs.get_64()
-	#fs.close()
+	fs.open(GAME_DATA_FILE_SAVE, File.READ)
+	max_score = fs.get_64()
+	fs.close()
 	
 	# Pauses the game (for click to start)
 	print(GAME_LOADED)
@@ -88,16 +98,16 @@ func _ready():
 # Saving result func
 func _save_game():
 	# Update player save in database
-	database._update(BASE_PLAYER_ID, DATABASE_POINTS_CODE, score)
+	#database._update(BASE_PLAYER_ID, DATABASE_POINTS_CODE, score)
 	
 	# Open up save file and makes it writable
-	#fs.open(GAME_DATA_FILE_SAVE, File.WRITE)
+	fs.open(GAME_DATA_FILE_SAVE, File.WRITE)
 	
 	# Stores the player score to be added
-	#fs.store_64(score)
+	fs.store_64(score)
 	
 	# Closes the file
-	#fs.close()
+	fs.close()
 	
 	print(GAME_SAVED)
 
@@ -109,7 +119,30 @@ func _physics_process(delta):
 	
 	if timer > PLATFORM_TIMER_DELAY:
 		# Generate random plank spawn obj
-		var plank = planke.instance()
+		#random_plank_spawner = randi() % 3 + 1
+		
+		# var plank
+#		if random_plank_spawner == 1:
+#			plank = planke.instance()
+#		elif random_plank_spawner == 2:
+#			plank = knight_plank.instance()
+#		elif random_plank_spawner == 3:
+#			plank = wizard_plank.instance()
+		
+		var plank
+		match randi() % 4 + 1:
+			1:
+				plank = planke.instance()
+			2:
+				plank = knight_plank.instance()
+			3:
+				plank = wizard_plank.instance()
+			4:
+				plank = anubis_plank.instance()
+			#_:
+				#plank = planke.instance()
+		
+		#var plank = planke.instance()
 		randomize()
 		
 		plank.position.y = screen_width - rand_range(PLANK_SPAWN_Y_MIN_BOUND, PLANK_SPAWN_Y_MAX_BOUND)
