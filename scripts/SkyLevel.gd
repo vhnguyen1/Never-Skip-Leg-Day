@@ -12,7 +12,7 @@ extends Node2D
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
-const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' #Place to save result
+const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' # Place to save result
 const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
 
 #------------------------- Constants ------------------------------------#
@@ -54,7 +54,7 @@ var SAVE = 0
 
 #------------------------- Resources ------------------------------------#
 
-var fs
+#var fs
 var planke #Create scene as var
 var database
 
