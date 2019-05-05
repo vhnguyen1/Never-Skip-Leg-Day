@@ -94,9 +94,6 @@ animations = [ {
 [node name="Knight" type="KinematicBody2D"]
 position = Vector2( 56.3754, 124.688 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -28.6395, -82.9037 )
@@ -106,7 +103,6 @@ shape = SubResource( 1 )
 position = Vector2( -32.354, -87.7006 )
 scale = Vector2( 0.302476, 0.265067 )
 frames = SubResource( 2 )
-frame = 7
 playing = true
 script = ExtResource( 52 )
 

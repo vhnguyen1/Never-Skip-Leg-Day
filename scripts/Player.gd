@@ -19,6 +19,7 @@ var vel = Vector2()
 var collision
 
 func _ready():
+	#get_owner().connect("body_enter",self,"_on_Player_area_entered")
 	#print (global_position)
 	pass
 
@@ -100,8 +101,9 @@ func _on_PlayerChar_death():
 
 func _on_Player_area_entered(area):
 	if area.is_in_group(DEFAULT_ENEMY_CODE):
-		vel = vel.bounce(collision.normal)
-		if collision.collider.has_method(DEFAULT_HIT_CODE):
-			collision.collider.hit()
-			print("hit!")
-			$CollisionShape2D.disabled = false
+		_on_PlayerChar_death()
+		#vel = vel.bounce(collision.normal)
+		#if collision.collider.has_method(DEFAULT_HIT_CODE):
+			#collision.collider.hit()
+			#print("hit!")
+			#$CollisionShape2D.disabled = false

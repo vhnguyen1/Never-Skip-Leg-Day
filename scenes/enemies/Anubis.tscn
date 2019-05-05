@@ -128,9 +128,6 @@ animations = [ {
 [node name="Anubis" type="KinematicBody2D"]
 position = Vector2( -85.1254, -16.2111 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 129.243, 74.5219 )
@@ -140,7 +137,6 @@ shape = SubResource( 1 )
 position = Vector2( 129.596, 74.6971 )
 scale = Vector2( 0.165904, 0.162068 )
 frames = SubResource( 2 )
-frame = 7
 playing = true
 script = ExtResource( 86 )
 

@@ -18,16 +18,19 @@ const PLAYER_CLASSIFIER = "player"
 const SFX_PATH = "./SFXPlayer"
 const DEFAULT_START = 0.0
 
+const DEFAULT_ENEMY_CODE = "enemy"
+
 # Member Variables
 var m_name	# Entity name
 var m_sfx_player# Plays various sound effects that the entity uses.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group(DEFAULT_ENEMY_CODE)
 	self.m_name = self.get_name()
 	
 	# Overrides the on_body_enter method
-	connect(COLLISION_KEY, self, COLLISION_OVERRIDE_NAME)
+	#connect(COLLISION_KEY, self, COLLISION_OVERRIDE_NAME)
 	set_process(true)
 	
 	# Initializes the AudioStreamPlayer2D
@@ -36,6 +39,13 @@ func _ready():
 	# Informs the console when Entity is created.
 	#print(self.m_name + " has spawned!")
 	
+
+func _process(delta):
+	var collision = move_and_collide(Vector2(0, 3.5) * delta)
+	if collision:
+		print(self.get_name() + " collision with " + collision.get_collider().get_name())
+		
+
 # Collision detection
 func _on_body_enter(other):
 	print(self.m_name + " collision with " + other.get_name())
