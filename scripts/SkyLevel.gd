@@ -12,7 +12,7 @@ extends Node2D
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
-const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' #Place to save result
+const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' # Place to save result
 const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
 
 #------------------------- Constants ------------------------------------#
@@ -63,9 +63,9 @@ var database
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load up necessary resources
-	#fs = File.new()
+	fs = File.new()
 	planke = preload(PLANK_PATH)
-	database = load(SQL_DATABASE_PATH).new()
+	#database = load(SQL_DATABASE_PATH).new()
 	
 	# Initialize screen dimensions
 	#back_size = $Background/background_image.texture.get_size()
@@ -73,12 +73,12 @@ func _ready():
 	screen_width = DEFAULT_SCREEN_WIDTH_DIMENSION
 	
 	# Load save from database
-	max_score = database._get_value(BASE_PLAYER_ID, DATABASE_POINTS_CODE)
+	#max_score = database._get_value(BASE_PLAYER_ID, DATABASE_POINTS_CODE)
 	
 	# Load save from file
-	#fs.open(GAME_DATA_FILE_SAVE, File.READ)
-	#max_score = fs.get_64()
-	#fs.close()
+	fs.open(GAME_DATA_FILE_SAVE, File.READ)
+	max_score = fs.get_64()
+	fs.close()
 	
 	# Pauses the game (for click to start)
 	print(GAME_LOADED)
@@ -88,16 +88,16 @@ func _ready():
 # Saving result func
 func _save_game():
 	# Update player save in database
-	database._update(BASE_PLAYER_ID, DATABASE_POINTS_CODE, score)
+	#database._update(BASE_PLAYER_ID, DATABASE_POINTS_CODE, score)
 	
 	# Open up save file and makes it writable
-	#fs.open(GAME_DATA_FILE_SAVE, File.WRITE)
+	fs.open(GAME_DATA_FILE_SAVE, File.WRITE)
 	
 	# Stores the player score to be added
-	#fs.store_64(score)
+	fs.store_64(score)
 	
 	# Closes the file
-	#fs.close()
+	fs.close()
 	
 	print(GAME_SAVED)
 
