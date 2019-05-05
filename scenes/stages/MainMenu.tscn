@@ -112,10 +112,14 @@ scale = Vector2( 0.435093, 0.442568 )
 frames = SubResource( 1 )
 animation = "blink"
 <<<<<<< HEAD
+<<<<<<< HEAD
 frame = 8
 =======
 frame = 2
 >>>>>>> master
+=======
+frame = 1
+>>>>>>> parent of bdbb6ef... Update MainMenu.tscn
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
