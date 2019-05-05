@@ -113,6 +113,7 @@ frames = SubResource( 1 )
 animation = "blink"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 frame = 8
 =======
 frame = 2
@@ -120,6 +121,9 @@ frame = 2
 =======
 frame = 1
 >>>>>>> parent of bdbb6ef... Update MainMenu.tscn
+=======
+frame = 16
+>>>>>>> parent of b42e9ac... Renamed project/game name.
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
