@@ -4,13 +4,13 @@
 [ext_resource path="res://scenes/enemies/Knight.tscn" type="PackedScene" id=2]
 
 [node name="KnightPlank" type="Node2D"]
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 0, -0.27739 )
 
 [node name="Plank" parent="." instance=ExtResource( 1 )]
-position = Vector2( 30.9114, 89.0337 )
+position = Vector2( 0, 0 )
+scale = Vector2( 1, 0.4 )
 
 [node name="Knight" parent="." instance=ExtResource( 2 )]
-position = Vector2( 58.0902, 128.118 )
+position = Vector2( 13.1816, 52.1688 )
+scale = Vector2( 0.9, 0.85 )
 
