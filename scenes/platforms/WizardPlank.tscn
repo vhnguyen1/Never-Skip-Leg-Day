@@ -1,17 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/enemies/Wizard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/platforms/Plank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/platforms/Plank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/enemies/Wizard.tscn" type="PackedScene" id=2]
 
 [node name="WizardPlank" type="Node2D"]
-position = Vector2( -5, -45.0001 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( -5.46329, -45.0001 )
 
-[node name="Wizard" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128.598, 161.334 )
-
-[node name="Plank" parent="." instance=ExtResource( 2 )]
+[node name="Plank" parent="." instance=ExtResource( 1 )]
 position = Vector2( 43.9114, 132.034 )
+
+[node name="Wizard" parent="." instance=ExtResource( 2 )]
+position = Vector2( 161.525, 181.619 )
 

@@ -12,6 +12,8 @@ extends Node2D
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
+const NARROW_PLANK_PATH = PLATFORM_SCENE_PATH + "NarrowPlank.tscn"
+const WIDE_PLANK_PATH = PLATFORM_SCENE_PATH + "WidePlank.tscn"
 const KNIGHT_PLANK_PATH = PLATFORM_SCENE_PATH + "KnightPlank.tscn"
 const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "WizardPlank.tscn"
 const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "AnubisPlank.tscn"
@@ -30,10 +32,10 @@ const PLATFORM_TIMER_DELAY = 0.7
 const START_PLANK_X = -36
 const START_PLANK_Y = -160
 const DEFAULT_SCREEN_WIDTH_DIMENSION = 800
-const PLANK_SPAWN_Y_MIN_BOUND = 800
-const PLANK_SPAWN_Y_MAX_BOUND = 900
-const PLANK_SPAWN_X_MIN_BOUND = 30
-const PLANK_SPAWN_X_MAX_BOUND = 530
+const PLANK_SPAWN_Y_MIN_BOUND = 900
+const PLANK_SPAWN_Y_MAX_BOUND = 1000
+const PLANK_SPAWN_X_MIN_BOUND = 0
+const PLANK_SPAWN_X_MAX_BOUND = 500
 
 const SCORE = "SCORE: "
 const YOUR_SCORE = "YOUR SCORE: "
@@ -62,6 +64,8 @@ var planke #Create scene as var
 var knight_plank
 var wizard_plank
 var anubis_plank
+var narrow_plank
+var wide_plank
 var random_plank_spawner
 var database
 
@@ -72,6 +76,8 @@ func _ready():
 	# Load up necessary resources
 	fs = File.new()
 	planke = preload(PLANK_PATH)
+	narrow_plank = preload(NARROW_PLANK_PATH)
+	wide_plank = preload(WIDE_PLANK_PATH)
 	knight_plank = preload(KNIGHT_PLANK_PATH)
 	wizard_plank = preload(WIZARD_PLANK_PATH)
 	anubis_plank = preload(ANUBIS_PLANK_PATH)
@@ -130,7 +136,7 @@ func _physics_process(delta):
 #			plank = wizard_plank.instance()
 		
 		var plank
-		match randi() % 4 + 1:
+		match randi() % 6 + 1:
 			1:
 				plank = planke.instance()
 			2:
@@ -139,6 +145,10 @@ func _physics_process(delta):
 				plank = wizard_plank.instance()
 			4:
 				plank = anubis_plank.instance()
+			5:
+				plank = narrow_plank.instance()
+			6:
+				plank = wide_plank.instance()
 			#_:
 				#plank = planke.instance()
 		
