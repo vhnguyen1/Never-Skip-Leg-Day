@@ -12,8 +12,8 @@ extends MarginContainer
 
 const STAGE_PATH = "res://scenes/stages/"
 const START_GAME_PATH = STAGE_PATH + "SkyLevel.tscn"
-const SETTINGS_PATH = STAGE_PATH + "Settings.tscn"
 
+const SETTINGS_PATH = "../SettingsMenu"
 const AVATAR_SPRITE_PATH = "../Avatar"
 const CLICK_TO_START_PATH = "../ClickText"
 const VBOX_MENU_OPTIONS_PATH = "./VBoxContainer/MenuOptions/"
@@ -41,6 +41,7 @@ var is_displaying_splashscreen
 
 var avatar_sprite
 var click_text
+var settings_menu
 
 #------------------------- Functions ------------------------------------#
 
@@ -48,6 +49,7 @@ var click_text
 func _ready():
 	paused = true;
 	is_displaying_splashscreen = true
+	settings_menu = get_node(SETTINGS_PATH)
 	avatar_sprite = get_node(AVATAR_SPRITE_PATH)
 	click_text = get_node(CLICK_TO_START_PATH)
 	
@@ -80,14 +82,21 @@ func _input(event):
 		avatar_sprite.visible = false
 		click_text.visible = true
 		is_displaying_splashscreen = true
+		get_tree().set_input_as_handled()
 
 # Plays the game
 func _load_game():
+	self.visible = false
+	avatar_sprite.visible = false
 	get_tree().change_scene(START_GAME_PATH)
 
 # Opens options probably for instructions on how to play
 func _load_options():
-	get_tree().change_scene(SETTINGS_PATH)
+	self.visible = false
+	click_text.visible = false
+	avatar_sprite.visible = false
+	settings_menu.visible = true
+	get_tree().set_input_as_handled()
 
 # Quits game || closes the game
 func _quit():

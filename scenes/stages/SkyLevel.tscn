@@ -112,6 +112,7 @@ stretch_mode = 2
 
 [node name="MemeOverload" type="Node2D" parent="."]
 pause_mode = 2
+editor/display_folded = true
 
 [node name="Ducky" type="Node2D" parent="MemeOverload"]
 pause_mode = 2
@@ -342,7 +343,6 @@ scale = Vector2( 0.478179, -0.45483 )
 texture = ExtResource( 19 )
 
 [node name="LoadingScreen" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -361,6 +361,7 @@ margin_top = 195.0
 margin_right = 567.0
 margin_bottom = 525.0
 volume_db = -5.0
+autoplay = true
 expand = true
 buffering_msec = 1000
 
