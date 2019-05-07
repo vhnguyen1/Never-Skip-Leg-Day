@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Jumping Effect.wav-a27d08851fa4c8f09766845cbeeee5ec.sample"
+path="res://.import/Jumping Effect.wav-261f7d969075c15c0852e1fc5f0b5adf.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound_effects/player/Jumping Effect.wav"
-dest_files=[ "res://.import/Jumping Effect.wav-a27d08851fa4c8f09766845cbeeee5ec.sample" ]
+source_file="res://assets/audio/player/Jumping Effect.wav"
+dest_files=[ "res://.import/Jumping Effect.wav-261f7d969075c15c0852e1fc5f0b5adf.sample" ]
 
 [params]
 
