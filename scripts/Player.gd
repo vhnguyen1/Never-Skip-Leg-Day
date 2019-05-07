@@ -108,5 +108,5 @@ func _on_Player_area_entered(area):
 		if collision.collider.has_method(DEFAULT_HIT_CODE):
 			collision.collider.hit()
 			print("hit!")
-			$CollisionShape2D.disabled = true
-			$CollisionShape2D2.disabled = true
+			$CollisionShape2D.disabled = false
+			
