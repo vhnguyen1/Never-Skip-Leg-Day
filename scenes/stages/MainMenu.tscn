@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/GameMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/menu_click_to_start.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://scripts/AudioLoop.gd" type="Script" id=30]
 [ext_resource path="res://scripts/HorizontalParallax.gd" type="Script" id=31]
 [ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=32]
+[ext_resource path="res://assets/audio/sound_effects/ui/button_beep.wav" type="AudioStream" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -153,7 +154,7 @@ position = Vector2( 454.904, 439.361 )
 scale = Vector2( 0.435093, 0.442568 )
 frames = SubResource( 1 )
 animation = "blink"
-frame = 6
+frame = 13
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
@@ -178,6 +179,9 @@ texture = ExtResource( 32 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="ButtonSFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 33 )
 
 
 [editable path="SettingsMenu"]
