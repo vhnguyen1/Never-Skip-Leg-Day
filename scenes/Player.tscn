@@ -37,6 +37,11 @@ position = Vector2( -2.3898, 37.2403 )
 scale = Vector2( 1.442, 1.007 )
 shape = SubResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="PlayerChar"]
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+
 [connection signal="area_entered" from="." to="PlayerChar" method="_on_Player_area_entered"]
 [connection signal="death" from="PlayerChar" to="PlayerChar" method="_on_PlayerChar_death"]
 [connection signal="screen_exited" from="PlayerChar/Sprite/VisibilityNotifier2D" to="PlayerChar" method="_on_VisibilityNotifier2D_screen_exited"]

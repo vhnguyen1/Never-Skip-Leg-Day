@@ -122,7 +122,7 @@ position = Vector2( 454.904, 439.361 )
 scale = Vector2( 0.435093, 0.442568 )
 frames = SubResource( 1 )
 animation = "blink"
-frame = 17
+frame = 14
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
