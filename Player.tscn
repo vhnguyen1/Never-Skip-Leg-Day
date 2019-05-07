@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/visuals/player/Player.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/sound_effects/player/Jumping Effect.wav" type="AudioStream" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 25.5547
+height = 40.5764
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.9504, 2.04366 )
+
+[node name="Player" type="Area2D" groups=[
+"player",
+]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -1.26619, -0.674153 )
+scale = Vector2( 0.882229, 0.95813 )
+shape = SubResource( 1 )
+
+[node name="PlayerChar" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+visibility_notifier_path = NodePath("Sprite/VisibilityNotifier2D")
+
+[node name="Sprite" type="Sprite" parent="PlayerChar"]
+position = Vector2( -1.58599, -0.527847 )
+scale = Vector2( 0.281694, 0.284256 )
+texture = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="PlayerChar/Sprite"]
+position = Vector2( 8.51927, -5.04727 )
+scale = Vector2( 16.7877, 18.1465 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerChar"]
+position = Vector2( -2.3898, 37.2403 )
+scale = Vector2( 1.442, 1.007 )
+shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PlayerChar"]
+stream = ExtResource( 3 )
+volume_db = -27.262
+
+[connection signal="area_entered" from="." to="PlayerChar" method="_on_Player_area_entered"]
+[connection signal="death" from="PlayerChar" to="PlayerChar" method="_on_PlayerChar_death"]
+[connection signal="screen_exited" from="PlayerChar/Sprite/VisibilityNotifier2D" to="PlayerChar" method="_on_VisibilityNotifier2D_screen_exited"]
