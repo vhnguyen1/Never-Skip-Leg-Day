@@ -57,6 +57,7 @@ var needs_saving = false
 var music_time = 0
 var GAME = true
 var SAVE = 0
+export var is_from_level = false
 
 #------------------------- Resources ------------------------------------#
 
@@ -69,6 +70,7 @@ var narrow_plank
 var wide_plank
 var random_plank_spawner
 var database
+var main_menu
 
 #------------------------- Functions ------------------------------------#
 
@@ -83,6 +85,7 @@ func _ready():
 	knight_plank = preload(KNIGHT_PLANK_PATH)
 	wizard_plank = preload(WIZARD_PLANK_PATH)
 	anubis_plank = preload(ANUBIS_PLANK_PATH)
+	main_menu = get_node(MAIN_MENU_PATH)
 	#database = load(SQL_DATABASE_PATH).new()
 	
 	# Initialize screen dimensions
@@ -200,6 +203,10 @@ func _on_Main_Menu_pressed():
 	# Exits to main menu
 	get_tree().paused = false
 	$Pause_screen.hide()
+	print(is_from_level)
+	is_from_level = true
+	print(is_from_level)
+	get_tree().set_input_as_handled()
 	get_tree().change_scene(MAIN_MENU_PATH)
 
 # Pauses the game (assuming it is unpaused).

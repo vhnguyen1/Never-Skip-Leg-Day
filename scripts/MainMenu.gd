@@ -10,6 +10,7 @@ extends MarginContainer
 
 #------------------------- Directory Paths ------------------------------------#
 
+const SKY_LEVEL_PATH = "res://scripts/SkyLevel.gd"
 const STAGE_PATH = "res://scenes/stages/"
 const START_GAME_PATH = STAGE_PATH + "SkyLevel.tscn"
 
@@ -44,17 +45,25 @@ var is_displaying_splashscreen
 var avatar_sprite
 var click_text
 var settings_menu
+var sky_level
 
 #------------------------- Functions ------------------------------------#
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	paused = true;
+	sky_level = load(SKY_LEVEL_PATH).new()
+	
+	print(sky_level.is_from_level)
+	if (sky_level.is_from_level):
+		self.visible = true
+	
 	is_displaying_splashscreen = true
 	settings_menu = get_node(SETTINGS_PATH)
 	avatar_sprite = get_node(AVATAR_SPRITE_PATH)
 	click_text = get_node(CLICK_TO_START_PATH)
 	button_sfx_player = get_node(BUTTON_SFX_PLAYER_PATH)
+	#click_text.visible = true
 	
 	# Link play button to the level scenes
 	play_button = get_node(VBOX_MENU_OPTIONS_PLAY_BUTTON_PATH)
@@ -95,8 +104,8 @@ func _input(event):
 # Plays the game
 func _load_game():
 	_play_button_sound()
-	self.visible = false
-	avatar_sprite.visible = false
+	#self.visible = false
+	#avatar_sprite.visible = false
 	get_tree().change_scene(START_GAME_PATH)
 
 # Opens options probably for instructions on how to play
