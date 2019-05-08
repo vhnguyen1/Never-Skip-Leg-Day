@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wizard_hit.wav-d96174d0fb3951c3346ae7cb7a40126b.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound_effects/wizard/wizard_hit.wav"
+dest_files=[ "res://.import/wizard_hit.wav-d96174d0fb3951c3346ae7cb7a40126b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
