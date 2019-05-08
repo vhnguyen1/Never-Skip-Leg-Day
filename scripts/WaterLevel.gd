@@ -11,12 +11,12 @@ extends Node2D
 
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
-const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
-const NARROW_PLANK_PATH = PLATFORM_SCENE_PATH + "NarrowPlank.tscn"
-const WIDE_PLANK_PATH = PLATFORM_SCENE_PATH + "WidePlank.tscn"
-const KNIGHT_PLANK_PATH = PLATFORM_SCENE_PATH + "KnightPlank.tscn"
-const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "WizardPlank.tscn"
-const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "AnubisPlank.tscn"
+const PLANK_PATH = PLATFORM_SCENE_PATH + "WaterPlank.tscn"
+const NARROW_PLANK_PATH = PLATFORM_SCENE_PATH + "WaterNarrowPlank.tscn"
+const WIDE_PLANK_PATH = PLATFORM_SCENE_PATH + "WaterWidePlank.tscn"
+const KNIGHT_PLANK_PATH = PLATFORM_SCENE_PATH + "YetiPlank.tscn"
+#const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
+#const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
 const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' # Place to save result
 const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
 
@@ -61,11 +61,11 @@ var SAVE = 0
 
 var fs
 var planke #Create scene as var
-var knight_plank
-var wizard_plank
-var anubis_plank
-var narrow_plank
-var wide_plank
+var yeti_plank
+#var wizard_plank
+#var anubis_plank
+var waternarrow_plank
+var waterwide_plank
 var random_plank_spawner
 var database
 
@@ -76,11 +76,11 @@ func _ready():
 	# Load up necessary resources
 	fs = File.new()
 	planke = preload(PLANK_PATH)
-	narrow_plank = preload(NARROW_PLANK_PATH)
-	wide_plank = preload(WIDE_PLANK_PATH)
-	knight_plank = preload(KNIGHT_PLANK_PATH)
-	wizard_plank = preload(WIZARD_PLANK_PATH)
-	anubis_plank = preload(ANUBIS_PLANK_PATH)
+	waternarrow_plank = preload(NARROW_PLANK_PATH)
+	waterwide_plank = preload(WIDE_PLANK_PATH)
+	yeti_plank = preload(KNIGHT_PLANK_PATH)
+	#_plank = preload(WIZARD_PLANK_PATH)
+	#_plank = preload(ANUBIS_PLANK_PATH)
 	#database = load(SQL_DATABASE_PATH).new()
 	
 	# Initialize screen dimensions
@@ -140,15 +140,15 @@ func _physics_process(delta):
 			1:
 				plank = planke.instance()
 			2:
-				plank = knight_plank.instance()
-			3:
-				plank = wizard_plank.instance()
-			4:
-				plank = anubis_plank.instance()
+				plank = yeti_plank.instance()
+			#3:
+			#	plank = wizard_plank.instance()
+			#4:
+			#	plank = anubis_plank.instance()
 			5:
-				plank = narrow_plank.instance()
+				plank = waternarrow_plank.instance()
 			6:
-				plank = wide_plank.instance()
+				plank = waterwide_plank.instance()
 			#_:
 				#plank = planke.instance()
 		
