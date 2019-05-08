@@ -343,7 +343,6 @@ scale = Vector2( 0.478179, -0.45483 )
 texture = ExtResource( 19 )
 
 [node name="LoadingScreen" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
