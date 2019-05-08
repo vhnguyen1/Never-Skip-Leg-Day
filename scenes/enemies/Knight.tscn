@@ -52,6 +52,7 @@
 [ext_resource path="res://assets/visuals/enemies/knight/Attack1H/8.png" type="Texture" id=50]
 [ext_resource path="res://assets/visuals/enemies/knight/Attack1H/9.png" type="Texture" id=51]
 [ext_resource path="res://scripts/AnimatedSequence.gd" type="Script" id=52]
+[ext_resource path="res://assets/audio/sound_effects/knight/metal_hit.wav" type="AudioStream" id=53]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.5673, 36.0956 )
@@ -78,18 +79,16 @@ animations = [ {
 "name": "hurting",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
-"loop": false,
-"name": "attacking",
-"speed": 13.0
-}, {
 "frames": [  ],
 "loop": false,
 "name": "falling",
 "speed": 13.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "attacking",
+"speed": 13.0
 } ]
-
-[sub_resource type="AudioStreamSample" id=3]
 
 [node name="Knight" type="KinematicBody2D"]
 position = Vector2( 56.3754, 124.688 )
@@ -106,10 +105,10 @@ shape = SubResource( 1 )
 position = Vector2( -32.354, -87.7006 )
 scale = Vector2( 0.302476, 0.265067 )
 frames = SubResource( 2 )
-frame = 7
+frame = 9
 playing = true
 script = ExtResource( 52 )
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 3 )
+stream = ExtResource( 53 )
 

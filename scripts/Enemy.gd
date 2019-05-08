@@ -39,7 +39,7 @@ func _ready():
 # Collision detection
 func _on_body_enter(other):
 	print(self.m_name + " collision with " + other.get_name())
-	
+	$SFXPlayer.play()
 	if(other.is_in_group(PLAYER_CLASSIFIER)):
 		other.is_dead = true
 
