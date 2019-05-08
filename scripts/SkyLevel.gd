@@ -19,6 +19,7 @@ const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "WizardPlank.tscn"
 const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "AnubisPlank.tscn"
 const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' # Place to save result
 const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
+const MAIN_MENU_PATH = "res://scenes/stages/MainMenu.tscn"
 
 #------------------------- Constants ------------------------------------#
 
@@ -74,6 +75,7 @@ var database
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load up necessary resources
+	$Pause_screen.hide()
 	fs = File.new()
 	planke = preload(PLANK_PATH)
 	narrow_plank = preload(NARROW_PLANK_PATH)
@@ -193,6 +195,12 @@ func _on_Exit_pressed():
 		
 	# Exits the game
 	get_tree().quit()
+	
+func _on_Main_Menu_pressed():
+	# Exits to main menu
+	get_tree().paused = false
+	$Pause_screen.hide()
+	get_tree().change_scene(MAIN_MENU_PATH)
 
 # Pauses the game (assuming it is unpaused).
 # Pause button proc
@@ -218,6 +226,7 @@ func _on_Resume_pressed():
 	
 	$Pause_screen.hide()
 	get_tree().paused = false
+	
 
 # Resets the level back to the beginning and resumes gameplay.
 # Retry button proc

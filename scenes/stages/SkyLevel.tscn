@@ -393,7 +393,6 @@ scale = Vector2( 0.405368, 0.372807 )
 texture = ExtResource( 22 )
 
 [node name="Pause_screen" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -406,9 +405,9 @@ color = Color( 0, 0, 0, 0.618784 )
 
 [node name="Resume_label" type="Label" parent="Pause_screen/ColorRect"]
 margin_left = 214.0
-margin_top = 360.0
+margin_top = 329.091
 margin_right = 438.0
-margin_bottom = 433.0
+margin_bottom = 402.091
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -423,6 +422,27 @@ margin_left = -44.5198
 margin_top = -24.052
 margin_right = 250.48
 margin_bottom = 63.948
+shortcut = SubResource( 7 )
+
+[node name="Main_Menu_Label" type="Label" parent="Pause_screen/ColorRect"]
+margin_left = 164.546
+margin_top = 415.636
+margin_right = 449.546
+margin_bottom = 488.636
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Main Menu"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Main_Menu" type="TextureButton" parent="Pause_screen/ColorRect/Main_Menu_Label"]
+pause_mode = 2
+margin_left = -1.2477
+margin_top = -17.8702
+margin_right = 293.752
+margin_bottom = 70.1298
 shortcut = SubResource( 7 )
 
 [node name="Exit_label" type="Label" parent="Pause_screen/ColorRect"]
@@ -541,6 +561,7 @@ anims/GameSound = SubResource( 9 )
 [connection signal="pressed" from="Start_screen/ColorRect/StartButton" to="Start_screen/ColorRect/StartButton" method="_on_StartButton_pressed"]
 [connection signal="pressed" from="GUI/PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="Pause_screen/ColorRect/Resume_label/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause_screen/ColorRect/Main_Menu_Label/Main_Menu" to="." method="_on_Main_Menu_pressed"]
 [connection signal="pressed" from="Pause_screen/ColorRect/Exit_label/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="End_screen/ColorRect/Retry_label/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="End_screen/ColorRect/Exit_label/Exit" to="." method="_on_Exit_pressed"]
