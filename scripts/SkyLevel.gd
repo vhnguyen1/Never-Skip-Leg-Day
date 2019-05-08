@@ -11,12 +11,12 @@ extends Node2D
 
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
-const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
-const NARROW_PLANK_PATH = PLATFORM_SCENE_PATH + "NarrowPlank.tscn"
-const WIDE_PLANK_PATH = PLATFORM_SCENE_PATH + "WidePlank.tscn"
-const KNIGHT_PLANK_PATH = PLATFORM_SCENE_PATH + "KnightPlank.tscn"
-const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "WizardPlank.tscn"
-const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "AnubisPlank.tscn"
+const PLANK_PATH = PLATFORM_SCENE_PATH + "SpacePlank.tscn"
+const NARROW_PLANK_PATH = PLATFORM_SCENE_PATH + "SpaceNarrowPlank.tscn"
+const WIDE_PLANK_PATH = PLATFORM_SCENE_PATH + "SpaceWidePlank.tscn"
+const KNIGHT_PLANK_PATH = PLATFORM_SCENE_PATH + "AlienPlank.tscn"
+const WIZARD_PLANK_PATH = PLATFORM_SCENE_PATH + "CyclopsPlank.tscn"
+const ANUBIS_PLANK_PATH = PLATFORM_SCENE_PATH + "RhinoPlank.tscn"
 const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' # Place to save result
 const SQL_DATABASE_PATH = "res://scripts/db/Database.gd"
 

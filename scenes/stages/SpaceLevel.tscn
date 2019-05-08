@@ -1,0 +1,548 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://scripts/SkyLevel.gd" type="Script" id=1]
+[ext_resource path="res://scripts/VerticalParallax.gd" type="Script" id=2]
+[ext_resource path="res://assets/visuals/backdrops/space/space.png" type="Texture" id=3]
+[ext_resource path="res://assets/visuals/memes/ducky.png" type="Texture" id=4]
+[ext_resource path="res://assets/visuals/memes/billy.png" type="Texture" id=5]
+[ext_resource path="res://scripts/FlyingObjects.gd" type="Script" id=6]
+[ext_resource path="res://assets/visuals/memes/logo.png" type="Texture" id=7]
+[ext_resource path="res://assets/visuals/memes/monkas.png" type="Texture" id=8]
+[ext_resource path="res://assets/visuals/memes/pog.png" type="Texture" id=9]
+[ext_resource path="res://assets/visuals/memes/triangle.png" type="Texture" id=10]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=11]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/StartPlank.gd" type="Script" id=13]
+[ext_resource path="res://assets/visuals/plank2.png" type="Texture" id=14]
+[ext_resource path="res://fonts/11814.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://scripts/StartButton.gd" type="Script" id=16]
+[ext_resource path="res://assets/audio/soundtrack/bag_raiders_starting.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/visuals/ui/button_icon_set/TEXT BTN  start.png" type="Texture" id=18]
+[ext_resource path="res://assets/visuals/arrow2.png" type="Texture" id=19]
+[ext_resource path="res://scenes/stages/StartScreen.tscn" type="PackedScene" id=20]
+[ext_resource path="res://fonts/Font_theme.tres" type="Theme" id=21]
+[ext_resource path="res://assets/visuals/ui/button_icon_set/ROUND BTN  pause.png" type="Texture" id=22]
+[ext_resource path="res://assets/visuals/ouch!.png" type="Texture" id=23]
+[ext_resource path="res://assets/audio/soundtrack/bag_raiders.ogg" type="AudioStream" id=24]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _physics_process(delta):
+	if position.y > 810:
+		queue_free()
+		
+	pass"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 54.238, 2.65527 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 15 )
+
+[sub_resource type="Animation" id=4]
+length = 23.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 23 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 55
+font_data = ExtResource( 15 )
+
+[sub_resource type="InputEventAction" id=6]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 55
+font_data = ExtResource( 15 )
+
+[sub_resource type="Animation" id=9]
+length = 15.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[node name="SkyLevel" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+script = ExtResource( 2 )
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2( 0, 800 )
+
+[node name="SkyBackground" type="TextureRect" parent="Background/BackgroundLayer"]
+margin_right = 2160.0
+margin_bottom = 800.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="MemeOverload" type="Node2D" parent="."]
+pause_mode = 2
+editor/display_folded = true
+
+[node name="Ducky" type="Node2D" parent="MemeOverload"]
+pause_mode = 2
+
+[node name="Ducky" type="Sprite" parent="MemeOverload/Ducky"]
+position = Vector2( 972.762, 284.182 )
+rotation = -0.0860169
+scale = Vector2( 0.0808534, 0.0759038 )
+texture = ExtResource( 4 )
+
+[node name="BillyBronco" type="Node2D" parent="MemeOverload"]
+pause_mode = 2
+editor/display_folded = true
+
+[node name="Billy1" type="Sprite" parent="MemeOverload/BillyBronco"]
+position = Vector2( 193.589, 1352.89 )
+rotation = -2.10213
+scale = Vector2( 0.54363, 0.543145 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Billy2" type="Sprite" parent="MemeOverload/BillyBronco"]
+position = Vector2( -100, 570 )
+rotation = -1.02363
+scale = Vector2( 0.577609, 0.577093 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Billy3" type="Sprite" parent="MemeOverload/BillyBronco"]
+position = Vector2( 760, -110 )
+rotation = -1.02363
+scale = Vector2( 0.702885, 0.702257 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Billy4" type="Sprite" parent="MemeOverload/BillyBronco"]
+position = Vector2( 810, 896.693 )
+rotation = -1.07835
+scale = Vector2( -0.696952, 0.631051 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Logo" type="Node2D" parent="MemeOverload"]
+pause_mode = 2
+
+[node name="Logo1" type="Sprite" parent="MemeOverload/Logo"]
+position = Vector2( 408.25, 1338.48 )
+rotation = -2.59707
+scale = Vector2( 0.275541, 0.263448 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+
+[node name="Logo2" type="Sprite" parent="MemeOverload/Logo"]
+position = Vector2( -100, 90 )
+rotation = -2.59707
+scale = Vector2( 0.423572, 0.404981 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+
+[node name="Logo3" type="Sprite" parent="MemeOverload/Logo"]
+position = Vector2( 823.118, 491.438 )
+rotation = -2.59707
+scale = Vector2( 0.48963, 0.468141 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+
+[node name="Memes" type="Node2D" parent="MemeOverload"]
+pause_mode = 2
+
+[node name="Meme1" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 800, 280 )
+rotation = 4.7733
+scale = Vector2( 0.271194, 0.253164 )
+texture = ExtResource( 8 )
+script = ExtResource( 6 )
+
+[node name="Meme2" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( -120, 390 )
+rotation = 2.94949
+scale = Vector2( 0.201302, 0.187918 )
+texture = ExtResource( 8 )
+script = ExtResource( 6 )
+
+[node name="Meme3" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 698.496, 1098.52 )
+rotation = 5.94626
+scale = Vector2( -0.285872, 0.260253 )
+texture = ExtResource( 8 )
+script = ExtResource( 6 )
+
+[node name="Meme4" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 810, 72 )
+rotation = 2.55916
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 9 )
+script = ExtResource( 6 )
+
+[node name="Meme5" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( -50, 1300 )
+rotation = 3.64
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+script = ExtResource( 6 )
+
+[node name="Meme6" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 671.206, 1335.81 )
+rotation = 3.64
+scale = Vector2( 0.339603, 0.317024 )
+texture = ExtResource( 9 )
+script = ExtResource( 6 )
+
+[node name="Meme7" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 770.528, 665.429 )
+rotation = 3.01009
+scale = Vector2( 5, 5 )
+texture = ExtResource( 10 )
+script = ExtResource( 6 )
+
+[node name="Meme8" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( -98.5245, 788.628 )
+rotation = 2.68304
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+script = ExtResource( 6 )
+
+[node name="Meme9" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 220, -100 )
+rotation = 1.23784
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+script = ExtResource( 6 )
+
+[node name="Meme10" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( 477.609, -75.1601 )
+rotation = 2.62009
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+script = ExtResource( 6 )
+
+[node name="Meme11" type="Sprite" parent="MemeOverload/Memes"]
+position = Vector2( -90, -110 )
+rotation = 3.64
+scale = Vector2( 0.336929, 0.314528 )
+texture = ExtResource( 8 )
+script = ExtResource( 6 )
+
+[node name="Plank" type="Node2D" parent="."]
+script = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 280, 400 )
+script = ExtResource( 11 )
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+position = Vector2( 293, 599.484 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="StartPlank" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -40.1171, -180.29 )
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlank"]
+position = Vector2( 333.437, 852.599 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="StartPlank"]
+position = Vector2( 330, 856.382 )
+scale = Vector2( 0.9, 0.5 )
+texture = ExtResource( 14 )
+
+[node name="Start_screen" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Start_screen"]
+margin_left = -14.0
+margin_top = -14.0
+margin_right = 730.0
+margin_bottom = 1038.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Start_screen/ColorRect"]
+margin_left = 150.175
+margin_top = 98.7547
+margin_right = 422.175
+margin_bottom = 159.755
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "LEVEL 1"
+
+[node name="StartButton" type="TextureButton" parent="Start_screen/ColorRect"]
+pause_mode = 2
+margin_left = 212.0
+margin_top = 642.0
+margin_right = 407.0
+margin_bottom = 753.0
+script = ExtResource( 16 )
+
+[node name="Start_music" type="AudioStreamPlayer" parent="Start_screen/ColorRect/StartButton"]
+stream = ExtResource( 17 )
+volume_db = -5.0
+
+[node name="StartSound" type="AnimationPlayer" parent="Start_screen/ColorRect/StartButton/Start_music"]
+anims/soundstart = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Start_screen/ColorRect/StartButton"]
+position = Vector2( 85.6337, 62.5772 )
+scale = Vector2( 0.785204, 1.02667 )
+texture = ExtResource( 18 )
+
+[node name="arrow" type="Sprite" parent="Start_screen/ColorRect"]
+position = Vector2( 507.334, 641.465 )
+rotation = 2.19441
+scale = Vector2( 0.478179, 0.433263 )
+texture = ExtResource( 19 )
+
+[node name="arrow2" type="Sprite" parent="Start_screen/ColorRect"]
+position = Vector2( 94.5685, 627.725 )
+rotation = 1.1005
+scale = Vector2( 0.478179, -0.45483 )
+texture = ExtResource( 19 )
+
+[node name="LoadingScreen" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Loading_screen" type="ColorRect" parent="LoadingScreen"]
+margin_left = -11.0
+margin_top = -9.0
+margin_right = 571.0
+margin_bottom = 821.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Loading_screen" parent="LoadingScreen/Loading_screen" instance=ExtResource( 20 )]
+pause_mode = 2
+margin_left = 18.0
+margin_top = 195.0
+margin_right = 567.0
+margin_bottom = 525.0
+volume_db = -5.0
+autoplay = true
+expand = true
+buffering_msec = 1000
+
+[node name="GUI" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="score" type="Label" parent="GUI"]
+margin_left = 18.0
+margin_top = 19.0
+margin_right = 258.0
+margin_bottom = 64.0
+theme = ExtResource( 21 )
+text = "SCORE: "
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PauseButton" type="TextureButton" parent="GUI"]
+margin_left = 506.0
+margin_top = 10.0
+margin_right = 542.0
+margin_bottom = 52.0
+
+[node name="Icon" type="Sprite" parent="GUI/PauseButton"]
+position = Vector2( 19.6531, 25.8932 )
+scale = Vector2( 0.405368, 0.372807 )
+texture = ExtResource( 22 )
+
+[node name="Pause_screen" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Pause_screen"]
+margin_left = -14.6501
+margin_top = -16.0
+margin_right = 588.35
+margin_bottom = 823.0
+color = Color( 0, 0, 0, 0.618784 )
+
+[node name="Resume_label" type="Label" parent="Pause_screen/ColorRect"]
+margin_left = 214.0
+margin_top = 360.0
+margin_right = 438.0
+margin_bottom = 433.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "RESUME"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Resume" type="TextureButton" parent="Pause_screen/ColorRect/Resume_label"]
+pause_mode = 2
+margin_left = -44.5198
+margin_top = -24.052
+margin_right = 250.48
+margin_bottom = 63.948
+shortcut = SubResource( 7 )
+
+[node name="Exit_label" type="Label" parent="Pause_screen/ColorRect"]
+pause_mode = 2
+margin_left = 255.208
+margin_top = 494.763
+margin_right = 460.208
+margin_bottom = 555.763
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "EXIT"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Exit" type="TextureButton" parent="Pause_screen/ColorRect/Exit_label"]
+pause_mode = 2
+margin_left = -87.0
+margin_top = -13.0
+margin_right = 187.0
+margin_bottom = 67.0
+
+[node name="End_screen" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="End_screen"]
+margin_left = -29.0
+margin_top = -16.0
+margin_right = 590.0
+margin_bottom = 819.0
+color = Color( 0, 0, 0, 0.618784 )
+
+[node name="your_score" type="Label" parent="End_screen/ColorRect"]
+margin_left = 101.343
+margin_top = 226.978
+margin_right = 519.343
+margin_bottom = 282.978
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "YOUR SCORE:"
+align = 1
+
+[node name="max_score" type="Label" parent="End_screen/ColorRect"]
+margin_left = 93.0287
+margin_top = 336.485
+margin_right = 533.029
+margin_bottom = 395.485
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "HIGH SCORE:"
+align = 1
+
+[node name="Retry_label" type="Label" parent="End_screen/ColorRect"]
+margin_left = 181.459
+margin_top = 441.167
+margin_right = 445.459
+margin_bottom = 502.167
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TRY AGAIN"
+align = 1
+
+[node name="Retry" type="TextureButton" parent="End_screen/ColorRect/Retry_label"]
+pause_mode = 2
+margin_left = -47.0
+margin_top = -20.0
+margin_right = 250.0
+margin_bottom = 68.0
+shortcut = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Exit_label" type="Label" parent="End_screen/ColorRect"]
+pause_mode = 2
+margin_left = 211.738
+margin_top = 528.434
+margin_right = 416.738
+margin_bottom = 589.434
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "QUIT"
+align = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Exit" type="TextureButton" parent="End_screen/ColorRect/Exit_label"]
+pause_mode = 2
+margin_left = -37.4124
+margin_top = -22.5526
+margin_right = 259.588
+margin_bottom = 65.4474
+
+[node name="Sprite" type="Sprite" parent="End_screen/ColorRect"]
+position = Vector2( 389.293, 1073 )
+scale = Vector2( 0.527663, 0.51903 )
+texture = ExtResource( 23 )
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -10.0
+mix_target = 2
+
+[node name="GameMusic" type="AnimationPlayer" parent="GameMusic"]
+anims/GameSound = SubResource( 9 )
+
+[connection signal="pressed" from="Start_screen/ColorRect/StartButton" to="Start_screen/ColorRect/StartButton" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="GUI/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="Pause_screen/ColorRect/Resume_label/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause_screen/ColorRect/Exit_label/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="End_screen/ColorRect/Retry_label/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="End_screen/ColorRect/Exit_label/Exit" to="." method="_on_Exit_pressed"]
