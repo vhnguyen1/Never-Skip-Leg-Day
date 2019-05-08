@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/platforms/SpacePlank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/enemies/AlienRhino.tscn" type="PackedScene" id=2]
+
+[node name="AnubisPlank" type="Node2D"]
+position = Vector2( -5.34056, -15.0001 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Plank2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 120 )
+
+[node name="AlienRhino" parent="." instance=ExtResource( 2 )]
+position = Vector2( 32, 102 )
+scale = Vector2( 0.15, 0.15 )
+
