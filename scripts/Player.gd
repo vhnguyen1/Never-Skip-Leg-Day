@@ -77,12 +77,12 @@ func _on_PlayerChar_death():
 		position.x= 0
 		position.y= 30
 		vel.y = 0
-		$"../../".GAME = false
+		$"./../".GAME = false
 		get_tree().paused = true
-		$"../../End_screen".show()
-		$"../../Start_screen/ColorRect/StartButton/Start_music".stop()
-		$"../../GameMusic".stop()
-		$"../../GUI".hide()
+		$"./../End_screen".show()
+		$"./../Start_screen/ColorRect/StartButton/Start_music".stop()
+		$"./../GameMusic".stop()
+		$"./../GUI".hide()
 		
 		#if ($"../../".score < $"../../".max_score):
 			#$"../../".savegame()
