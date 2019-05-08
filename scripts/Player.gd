@@ -39,11 +39,11 @@ func _physics_process(delta):
 	vel = move_and_slide(vel, Vector2(0, -1))
 	
 	#************teleport to another side of screen************
-	if position.x < -280:
-		position.x = 280
+	if position.x < -350:
+		position.x = 350
 	
-	if position.x > 280:
-		position.x = -280
+	if position.x > 350:
+		position.x = -350
 	
 	collision = move_and_collide(vel * delta)	#calculate the collision if hit enemy 
 	#************if player falls from screen************
