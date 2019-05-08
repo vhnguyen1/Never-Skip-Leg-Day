@@ -39,9 +39,9 @@ func _ready():
 # Collision detection
 func _on_body_enter(other):
 	print(self.m_name + " collision with " + other.get_name())
-	$SFXPlayer.play()
+	$SFXPlayer.play(0.0)
 	if(other.is_in_group(PLAYER_CLASSIFIER)):
-		other.is_dead = true
+		other._on_PlayerChar_death()
 
 # Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
 # @param delta Time passed

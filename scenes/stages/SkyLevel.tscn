@@ -393,7 +393,6 @@ scale = Vector2( 0.405368, 0.372807 )
 texture = ExtResource( 22 )
 
 [node name="Pause_screen" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
