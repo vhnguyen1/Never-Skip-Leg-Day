@@ -1,6 +1,6 @@
 [gd_scene load_steps=56 format=2]
 
-[ext_resource path="res://scripts/SeekingEntity.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/enemies/knight/Idle/0.png" type="Texture" id=2]
 [ext_resource path="res://assets/visuals/enemies/knight/Idle/1.png" type="Texture" id=3]
 [ext_resource path="res://assets/visuals/enemies/knight/Idle/2.png" type="Texture" id=4]
@@ -11,56 +11,50 @@
 [ext_resource path="res://assets/visuals/enemies/knight/Idle/7.png" type="Texture" id=9]
 [ext_resource path="res://assets/visuals/enemies/knight/Idle/8.png" type="Texture" id=10]
 [ext_resource path="res://assets/visuals/enemies/knight/Idle/9.png" type="Texture" id=11]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/0.png" type="Texture" id=12]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/1.png" type="Texture" id=13]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/2.png" type="Texture" id=14]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/3.png" type="Texture" id=15]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/4.png" type="Texture" id=16]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/5.png" type="Texture" id=17]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/6.png" type="Texture" id=18]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/7.png" type="Texture" id=19]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/8.png" type="Texture" id=20]
-[ext_resource path="res://assets/visuals/enemies/knight/Hit/9.png" type="Texture" id=21]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/0.png" type="Texture" id=22]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/1.png" type="Texture" id=23]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/2.png" type="Texture" id=24]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/3.png" type="Texture" id=25]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/4.png" type="Texture" id=26]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/5.png" type="Texture" id=27]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/6.png" type="Texture" id=28]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/7.png" type="Texture" id=29]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/8.png" type="Texture" id=30]
-[ext_resource path="res://assets/visuals/enemies/knight/Run/9.png" type="Texture" id=31]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/0.png" type="Texture" id=32]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/1.png" type="Texture" id=33]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/2.png" type="Texture" id=34]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/3.png" type="Texture" id=35]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/4.png" type="Texture" id=36]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/5.png" type="Texture" id=37]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/6.png" type="Texture" id=38]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/7.png" type="Texture" id=39]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/8.png" type="Texture" id=40]
-[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/9.png" type="Texture" id=41]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/0.png" type="Texture" id=42]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/1.png" type="Texture" id=43]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/2.png" type="Texture" id=44]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/3.png" type="Texture" id=45]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/4.png" type="Texture" id=46]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/5.png" type="Texture" id=47]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/6.png" type="Texture" id=48]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/7.png" type="Texture" id=49]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/8.png" type="Texture" id=50]
-[ext_resource path="res://assets/visuals/enemies/knight/Walk/9.png" type="Texture" id=51]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/0.png" type="Texture" id=12]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/1.png" type="Texture" id=13]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/2.png" type="Texture" id=14]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/3.png" type="Texture" id=15]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/4.png" type="Texture" id=16]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/5.png" type="Texture" id=17]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/6.png" type="Texture" id=18]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/7.png" type="Texture" id=19]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/8.png" type="Texture" id=20]
+[ext_resource path="res://assets/visuals/enemies/knight/Run/9.png" type="Texture" id=21]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/0.png" type="Texture" id=22]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/1.png" type="Texture" id=23]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/2.png" type="Texture" id=24]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/3.png" type="Texture" id=25]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/4.png" type="Texture" id=26]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/5.png" type="Texture" id=27]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/6.png" type="Texture" id=28]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/7.png" type="Texture" id=29]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/8.png" type="Texture" id=30]
+[ext_resource path="res://assets/visuals/enemies/knight/Walk/9.png" type="Texture" id=31]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/0.png" type="Texture" id=32]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/1.png" type="Texture" id=33]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/2.png" type="Texture" id=34]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/3.png" type="Texture" id=35]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/4.png" type="Texture" id=36]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/5.png" type="Texture" id=37]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/6.png" type="Texture" id=38]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/7.png" type="Texture" id=39]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/8.png" type="Texture" id=40]
+[ext_resource path="res://assets/visuals/enemies/knight/Hit/9.png" type="Texture" id=41]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/0.png" type="Texture" id=42]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/1.png" type="Texture" id=43]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/2.png" type="Texture" id=44]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/3.png" type="Texture" id=45]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/4.png" type="Texture" id=46]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/5.png" type="Texture" id=47]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/6.png" type="Texture" id=48]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/7.png" type="Texture" id=49]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/8.png" type="Texture" id=50]
+[ext_resource path="res://assets/visuals/enemies/knight/Attack1H/9.png" type="Texture" id=51]
 [ext_resource path="res://scripts/AnimatedSequence.gd" type="Script" id=52]
 
-
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 107.013, 151.126 )
+extents = Vector2( 29.5673, 36.0956 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -70,46 +64,49 @@ animations = [ {
 "speed": 13.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "running",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "walking",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": false,
 "name": "hurting",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "attacking",
 "speed": 13.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "falling",
 "speed": 13.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "running",
-"speed": 13.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
-"loop": false,
-"name": "attacking",
-"speed": 13.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
-"loop": true,
-"name": "walking",
-"speed": 13.0
 } ]
 
 [sub_resource type="AudioStreamSample" id=3]
 
 [node name="Knight" type="KinematicBody2D"]
-position = Vector2( 107.625, 157.849 )
+position = Vector2( 56.3754, 124.688 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -28.6395, -82.9037 )
 shape = SubResource( 1 )
 
 [node name="Animations" type="AnimatedSprite" parent="."]
+position = Vector2( -32.354, -87.7006 )
+scale = Vector2( 0.302476, 0.265067 )
 frames = SubResource( 2 )
-frame = 2
+frame = 7
 playing = true
 script = ExtResource( 52 )
 

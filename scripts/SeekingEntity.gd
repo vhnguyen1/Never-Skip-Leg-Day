@@ -1,4 +1,4 @@
-extends "res://scripts/entity/Entity.gd"
+extends "res://scripts/Enemy.gd"
 
 var player = null
 var enemy_to_player

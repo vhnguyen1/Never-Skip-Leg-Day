@@ -13,15 +13,11 @@ const ANIMATION_FINISHED_CODE = "animation_finished"
 func _ready():
 	connect(ANIMATION_FINISHED_CODE, self, "_onAnimatedSprite_animation_finished")
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
 func _onAnimatedSprite_animation_finished():
 	#self._play_random_animation()
 	
 	self.animation = DEFAULT
-	self._print_current_animation()
+	#self._print_current_animation()
 
 func _play_animation(animation_name):
 	self.animation = animation_name

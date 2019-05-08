@@ -1,36 +1,42 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/GameMenu.gd" type="Script" id=1]
-[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://assets/visuals/ui/button_icon_set/TextBTN_Big.png" type="Texture" id=3]
-[ext_resource path="res://assets/visuals/ui/text/play.png" type="Texture" id=4]
-[ext_resource path="res://assets/visuals/ui/text/Settings.png" type="Texture" id=5]
-[ext_resource path="res://assets/visuals/ui/text/quit.png" type="Texture" id=6]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_000.png" type="Texture" id=7]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_001.png" type="Texture" id=8]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_002.png" type="Texture" id=9]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_003.png" type="Texture" id=10]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_004.png" type="Texture" id=11]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_005.png" type="Texture" id=12]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_006.png" type="Texture" id=13]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_007.png" type="Texture" id=14]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_008.png" type="Texture" id=15]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_009.png" type="Texture" id=16]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_010.png" type="Texture" id=17]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_011.png" type="Texture" id=18]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_012.png" type="Texture" id=19]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_013.png" type="Texture" id=20]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_014.png" type="Texture" id=21]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_015.png" type="Texture" id=22]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_016.png" type="Texture" id=23]
-[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_017.png" type="Texture" id=24]
-[ext_resource path="res://assets/visuals/ui/text/Title.png" type="Texture" id=25]
-[ext_resource path="res://assets/audio/soundtrack/Game-Menu_Looping.ogg" type="AudioStream" id=26]
-[ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=27]
+[ext_resource path="res://assets/visuals/menu_click_to_start.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ElapsedTimer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://assets/visuals/ui/button_icon_set/TextBTN_Big.png" type="Texture" id=5]
+[ext_resource path="res://assets/visuals/ui/text/play.png" type="Texture" id=6]
+[ext_resource path="res://assets/visuals/ui/text/Settings.png" type="Texture" id=7]
+[ext_resource path="res://assets/visuals/ui/text/quit.png" type="Texture" id=8]
+[ext_resource path="res://scenes/SettingsTree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_000.png" type="Texture" id=10]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_001.png" type="Texture" id=11]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_002.png" type="Texture" id=12]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_003.png" type="Texture" id=13]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_004.png" type="Texture" id=14]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_005.png" type="Texture" id=15]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_006.png" type="Texture" id=16]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_007.png" type="Texture" id=17]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_008.png" type="Texture" id=18]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_009.png" type="Texture" id=19]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_010.png" type="Texture" id=20]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_011.png" type="Texture" id=21]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_012.png" type="Texture" id=22]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_013.png" type="Texture" id=23]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_014.png" type="Texture" id=24]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_015.png" type="Texture" id=25]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_016.png" type="Texture" id=26]
+[ext_resource path="res://assets/visuals/enemies/anubis/Idle Blinking/Idle Blinking_017.png" type="Texture" id=27]
+[ext_resource path="res://assets/visuals/ui/text/Title.png" type="Texture" id=28]
+[ext_resource path="res://assets/audio/soundtrack/Game-Menu_Looping.ogg" type="AudioStream" id=29]
+[ext_resource path="res://scripts/AudioLoop.gd" type="Script" id=30]
+[ext_resource path="res://scripts/HorizontalParallax.gd" type="Script" id=31]
+[ext_resource path="res://assets/visuals/backdrops/main/fantasy-1920-x-1080_full.png" type="Texture" id=32]
+[ext_resource path="res://assets/audio/sound_effects/ui/button_beep.wav" type="AudioStream" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "blink",
 "speed": 35.0
@@ -39,18 +45,25 @@ animations = [ {
 [node name="GameMenu" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="ClickText" type="Sprite" parent="."]
+position = Vector2( 284.021, 471.453 )
+scale = Vector2( 0.580151, 0.6346 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
 [node name="MainMenu" type="MarginContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -110.0
-margin_top = 169.48
-margin_right = 468.0
-margin_bottom = 725.48
+margin_left = -82.7924
+margin_top = 152.296
+margin_right = 495.208
+margin_bottom = 708.296
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
 custom_constants/margin_bottom = 80
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -72,68 +85,108 @@ alignment = 1
 [node name="PlayButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
 margin_right = 338.0
 margin_bottom = 112.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="MainMenu/VBoxContainer/MenuOptions/PlayButton"]
 position = Vector2( 165.024, 50.2248 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Pause" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
 visible = false
 margin_top = 142.0
 margin_right = 338.0
 margin_bottom = 254.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 
 [node name="SettingsButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
 margin_top = 142.0
 margin_right = 338.0
 margin_bottom = 254.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 
 [node name="Setting text" type="Sprite" parent="MainMenu/VBoxContainer/MenuOptions/SettingsButton"]
 position = Vector2( 172.364, 47.2228 )
 scale = Vector2( 0.890927, 0.914648 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
 [node name="QuitButton" type="TextureButton" parent="MainMenu/VBoxContainer/MenuOptions"]
 margin_top = 284.0
 margin_right = 338.0
 margin_bottom = 396.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="MainMenu/VBoxContainer/MenuOptions/QuitButton"]
 position = Vector2( 165.024, 47.8331 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 450, 450 )
+[node name="SettingsMenu" parent="." instance=ExtResource( 9 )]
+visible = false
+margin_left = -87.2146
+margin_top = 141.627
+margin_right = 566.785
+margin_bottom = 713.627
+
+[node name="VBoxContainer" parent="SettingsMenu" index="0"]
+margin_right = 534.0
+margin_bottom = 492.0
+
+[node name="MenuOptions" parent="SettingsMenu/VBoxContainer" index="0"]
+margin_right = 414.0
+margin_bottom = 412.0
+
+[node name="MusicButton" parent="SettingsMenu/VBoxContainer/MenuOptions" index="0"]
+margin_top = 0.0
+margin_right = 414.0
+margin_bottom = 120.0
+
+[node name="FullscreenButton" parent="SettingsMenu/VBoxContainer/MenuOptions" index="1"]
+margin_top = 150.0
+margin_right = 414.0
+margin_bottom = 270.0
+
+[node name="BackButton" parent="SettingsMenu/VBoxContainer/MenuOptions" index="2"]
+margin_top = 300.0
+margin_right = 414.0
+margin_bottom = 412.0
+
+[node name="Avatar" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 467.792, 440.793 )
 scale = Vector2( 0.435093, 0.442568 )
 frames = SubResource( 1 )
 animation = "blink"
+<<<<<<< HEAD
 frame = 17
+=======
+frame = 8
+>>>>>>> master
 playing = true
 
 [node name="Title" type="Sprite" parent="."]
 position = Vector2( 280, 110 )
 scale = Vector2( 0.8, 1.5 )
-texture = ExtResource( 25 )
+texture = ExtResource( 28 )
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 26 )
-
-[node name="MenuMusic" type="AnimationPlayer" parent="MenuMusic"]
+stream = ExtResource( 29 )
+script = ExtResource( 30 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 31 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="BG" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1.88721, 2.05615 )
 scale = Vector2( 1, 0.75 )
-texture = ExtResource( 27 )
+texture = ExtResource( 32 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
+[node name="ButtonSFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 33 )
+
+
+[editable path="SettingsMenu"]

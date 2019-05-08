@@ -8,6 +8,9 @@
 
 extends KinematicBody2D
 
+const SPEED = 3.5 # Rate at which Plank falls
+const UPPER_Y_BOUND = 1050
+
 # Constants
 const COLLISION_KEY = "body_enter"
 const COLLISION_OVERRIDE_NAME = "_on_body_enter"
@@ -31,7 +34,7 @@ func _ready():
 	self.m_sfx_player = get_node(SFX_PATH)
 	
 	# Informs the console when Entity is created.
-	print(self.m_name + " has spawned!")
+	#print(self.m_name + " has spawned!")
 	
 # Collision detection
 func _on_body_enter(other):
@@ -39,7 +42,17 @@ func _on_body_enter(other):
 	
 	if(other.is_in_group(PLAYER_CLASSIFIER)):
 		other.is_dead = true
-	
+
+# Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
+# @param delta Time passed
+func _physics_process(delta):
+	# Rate at w
+	position.y += SPEED
+
+	# Removes a given plank if it is not in the screen boundaries
+	if position.y > UPPER_Y_BOUND:
+		queue_free()
+
 # Plays a given sound effect.
 # @param path The sound file path.
 func _play_sound_effect(path):

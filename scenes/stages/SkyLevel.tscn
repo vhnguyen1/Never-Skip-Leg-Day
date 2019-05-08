@@ -1,14 +1,8 @@
 [gd_scene load_steps=34 format=2]
 
-<<<<<<< HEAD:scenes/stages/Level_1.tscn
-[ext_resource path="res://scripts/Level_1.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Background.gd" type="Script" id=2]
-[ext_resource path="res://assets/visuals/backdrops/sky/sky.png" type="Texture" id=3]
-=======
 [ext_resource path="res://scripts/SkyLevel.gd" type="Script" id=1]
 [ext_resource path="res://scripts/VerticalParallax.gd" type="Script" id=2]
-[ext_resource path="res://assets/visuals/backdrops/sky/sky background 2.PNG" type="Texture" id=3]
->>>>>>> master:scenes/stages/SkyLevel.tscn
+[ext_resource path="res://assets/visuals/backdrops/sky/sky.png" type="Texture" id=3]
 [ext_resource path="res://assets/visuals/memes/ducky.png" type="Texture" id=4]
 [ext_resource path="res://assets/visuals/memes/billy.png" type="Texture" id=5]
 [ext_resource path="res://scripts/FlyingObjects.gd" type="Script" id=6]
@@ -273,25 +267,25 @@ position = Vector2( 280, 400 )
 script = ExtResource( 11 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 293, 593 )
+position = Vector2( 293, 599.484 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="StartPlank" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( -40.1171, -180.29 )
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlank"]
-position = Vector2( 331.342, 840.727 )
+position = Vector2( 333.437, 852.599 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="StartPlank"]
-position = Vector2( 330, 850 )
+position = Vector2( 330, 856.382 )
+scale = Vector2( 0.9, 0.5 )
 texture = ExtResource( 14 )
 
 [node name="Start_screen" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -349,6 +343,7 @@ scale = Vector2( 0.478179, -0.45483 )
 texture = ExtResource( 19 )
 
 [node name="LoadingScreen" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -366,6 +361,7 @@ margin_top = 195.0
 margin_right = 567.0
 margin_bottom = 525.0
 volume_db = -5.0
+autoplay = true
 expand = true
 buffering_msec = 1000
 
@@ -398,6 +394,7 @@ scale = Vector2( 0.405368, 0.372807 )
 texture = ExtResource( 22 )
 
 [node name="Pause_screen" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
