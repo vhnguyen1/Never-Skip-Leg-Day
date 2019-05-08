@@ -32,8 +32,8 @@ const PLATFORM_TIMER_DELAY = 0.7
 const START_PLANK_X = -36
 const START_PLANK_Y = -160
 const DEFAULT_SCREEN_WIDTH_DIMENSION = 800
-const PLANK_SPAWN_Y_MIN_BOUND = 900
-const PLANK_SPAWN_Y_MAX_BOUND = 1000
+const PLANK_SPAWN_Y_MIN_BOUND = 600
+const PLANK_SPAWN_Y_MAX_BOUND = 800
 const PLANK_SPAWN_X_MIN_BOUND = 0
 const PLANK_SPAWN_X_MAX_BOUND = 500
 
@@ -116,10 +116,18 @@ func _save_game():
 	fs.close()
 	
 	print(GAME_SAVED)
+	
+func _get_camera_center():
+    var vtrans = get_canvas_transform()
+    var top_left = -vtrans.get_origin() / vtrans.get_scale()
+    var vsize = get_viewport_rect().size
+    return top_left + 0.5*vsize/vtrans.get_scale()
 
 # Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
 # @param delta Time passed
 func _physics_process(delta):
+	#print(_get_camera_center().y)
+	
 	# Parallax Background
 	timer += delta
 	
@@ -155,7 +163,7 @@ func _physics_process(delta):
 		#var plank = planke.instance()
 		randomize()
 		
-		plank.position.y = screen_width - rand_range(PLANK_SPAWN_Y_MIN_BOUND, PLANK_SPAWN_Y_MAX_BOUND)
+		plank.position.y = screen_width - rand_range(_get_camera_center().y + PLANK_SPAWN_Y_MIN_BOUND, _get_camera_center().y + PLANK_SPAWN_Y_MAX_BOUND)
 		randomize()
 		
 		plank.position.x = rand_range(PLANK_SPAWN_X_MIN_BOUND, PLANK_SPAWN_X_MAX_BOUND)
@@ -252,3 +260,4 @@ func _on_Retry_pressed():
 	GAME = true
 	get_tree().paused = false
 	$Start_screen/ColorRect/StartButton/Start_music.play()
+	get_tree().change_scene("res://scenes/stages/SkyLevel.tscn")

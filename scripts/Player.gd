@@ -17,10 +17,20 @@ const JUMP = 500
 
 var vel = Vector2()
 var collision
+var camera
+var end_screen
 
 func _ready():
+	camera = get_node("../../End_screen")
+	end_screen = get_node("../../Camera2D")
 	#print (global_position)
 	pass
+	
+func _get_camera_center():
+    var vtrans = get_canvas_transform()
+    var top_left = -vtrans.get_origin() / vtrans.get_scale()
+    var vsize = get_viewport_rect().size
+    return top_left + 0.5*vsize/vtrans.get_scale()
 
 func _physics_process(delta):
 	#************left right buttons************
@@ -79,6 +89,7 @@ func _on_PlayerChar_death():
 		vel.y = 0
 		$"../../".GAME = false
 		get_tree().paused = true
+		self.queue_free()
 		$"../../End_screen".show()
 		$"../../Start_screen/ColorRect/StartButton/Start_music".stop()
 		$"../../GameMusic".stop()

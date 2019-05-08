@@ -28,11 +28,15 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
+func _get_camera_center():
+    var vtrans = get_canvas_transform()
+    var top_left = -vtrans.get_origin() / vtrans.get_scale()
+    var vsize = get_viewport_rect().size
+    return top_left + 0.5*vsize/vtrans.get_scale()
+
 func _physics_process(delta):
-	if position.y > 810:
-		queue_free()
-		
-	pass"
+	if position.y > 810: #_get_camera_center().y + 2500:
+		queue_free()"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 54.238, 2.65527 )
@@ -105,8 +109,9 @@ script = ExtResource( 2 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="SkyBackground" type="TextureRect" parent="Background/BackgroundLayer"]
+margin_top = 3.05176e-005
 margin_right = 2160.0
-margin_bottom = 800.0
+margin_bottom = 1280.0
 texture = ExtResource( 3 )
 stretch_mode = 2
 
@@ -285,11 +290,13 @@ scale = Vector2( 0.9, 0.5 )
 texture = ExtResource( 14 )
 
 [node name="Start_screen" type="Control" parent="."]
-editor/display_folded = true
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 10.5486
+margin_top = 14.0647
+margin_right = 50.5486
+margin_bottom = 54.0647
 
 [node name="ColorRect" type="ColorRect" parent="Start_screen"]
+editor/display_folded = true
 margin_left = -14.0
 margin_top = -14.0
 margin_right = 730.0
@@ -300,10 +307,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Start_screen/ColorRect"]
-margin_left = 150.175
-margin_top = 98.7547
-margin_right = 422.175
-margin_bottom = 159.755
+margin_left = 158.965
+margin_top = 209.514
+margin_right = 430.965
+margin_bottom = 270.515
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
@@ -343,14 +350,16 @@ scale = Vector2( 0.478179, -0.45483 )
 texture = ExtResource( 19 )
 
 [node name="LoadingScreen" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 14.0647
+margin_top = 17.5809
+margin_right = 54.0647
+margin_bottom = 57.5809
 
 [node name="Loading_screen" type="ColorRect" parent="LoadingScreen"]
-margin_left = -11.0
-margin_top = -9.0
-margin_right = 571.0
-margin_bottom = 821.0
+margin_left = -10.6276
+margin_top = 100.912
+margin_right = 578.372
+margin_bottom = 1106.91
 color = Color( 0, 0, 0, 1 )
 
 [node name="Loading_screen" parent="LoadingScreen/Loading_screen" instance=ExtResource( 20 )]
@@ -365,10 +374,14 @@ expand = true
 buffering_msec = 1000
 
 [node name="GUI" type="Control" parent="."]
-editor/display_folded = true
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 15.8228
+margin_top = 239.1
+margin_right = 55.8228
+margin_bottom = 279.1
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="GUI"]
 margin_left = 18.0
@@ -448,7 +461,6 @@ margin_right = 187.0
 margin_bottom = 67.0
 
 [node name="End_screen" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0

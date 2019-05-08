@@ -23,6 +23,14 @@ shape = SubResource( 1 )
 script = ExtResource( 1 )
 visibility_notifier_path = NodePath("Sprite/VisibilityNotifier2D")
 
+[node name="Camera2D" type="Camera2D" parent="PlayerChar"]
+current = true
+limit_smoothed = true
+drag_margin_left = 1.0
+drag_margin_top = 0.0
+drag_margin_right = 1.0
+drag_margin_bottom = 1.0
+
 [node name="Sprite" type="Sprite" parent="PlayerChar"]
 position = Vector2( -1.58599, -0.527847 )
 scale = Vector2( 0.281694, 0.284256 )
