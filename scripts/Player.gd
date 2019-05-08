@@ -15,6 +15,7 @@ const SPEED = 250
 const GRAV = 15
 const JUMP = 500
 
+var direction = 1
 var vel = Vector2()
 var collision
 
@@ -26,8 +27,10 @@ func _physics_process(delta):
 	#************left right buttons************
 	if Input.is_action_pressed(LEFT_ARROW_CODE):
 		vel.x = -SPEED
+		$Sprite.flip_h = false
 	elif Input.is_action_pressed(RIGHT_ARROW_CODE):
 		vel.x = SPEED
+		$Sprite.flip_h = true
 	else:
 		vel.x = 0
 	
