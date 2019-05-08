@@ -12,6 +12,7 @@ extends Node
 const SCENE_DIRECTORY = "res://scenes/"
 const PLATFORM_SCENE_PATH = SCENE_DIRECTORY + "platforms/"
 const PLANK_PATH = PLATFORM_SCENE_PATH + "Plank.tscn"
+const MAIN_MENU_PATH = "res://scenes/stages/MainMenu.tscn"
 const GAME_DATA_FILE_SAVE = 'res://scores/GAME_DATA_FILE_SAVE-test.save' #Place to save result
 
 #------------------------- Constants ------------------------------------#
@@ -59,6 +60,7 @@ var planke #Create scene as var
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load up necessary resources
+	$Pause_screen.hide()
 	fs = File.new()
 	planke = preload(PLANK_PATH)
 	
@@ -139,6 +141,12 @@ func _on_Exit_pressed():
 		
 	# Exits the game
 	get_tree().quit()
+	
+func _on_Main_Menu_pressed():
+	# Exits to main menu
+	get_tree().paused = false
+	$Pause_screen.hide()
+	get_tree().change_scene(MAIN_MENU_PATH)
 
 # Pauses the game (assuming it is unpaused).
 # Pause button proc
@@ -163,6 +171,7 @@ func _on_Resume_pressed():
 	
 	$Pause_screen.hide()
 	get_tree().paused = false
+	
 
 # Resets the level back to the beginning and resumes gameplay.
 # Retry button proc
